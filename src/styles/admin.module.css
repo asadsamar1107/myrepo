@@ -1,0 +1,157 @@
+.b{
+    border: 2px solid red;
+    /* font-size: xx-large; */
+}
+.g{
+border: 2px solid green;
+}
+
+.btn2{
+ 
+    /* height: 35px; */
+    /* width: 500px; */
+    border: 1px solid #D0D5DD;
+    /* Shadow/xs */
+    
+    filter: drop-shadow(0px 1px 2px rgba(16, 24, 40, 0.05));
+    border-radius: 6px;
+    
+
+}
+.h{
+
+/* Gray/300 */
+
+border-right: 1px solid #D0D5DD;
+    
+}
+.table1{
+border: 1px solid #EAECF0;
+/* Shadow/sm */
+
+box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06);
+border-radius: 12px;
+
+}
+.downloadBtn{
+
+border: 1px solid #D0D5DD;
+/* Shadow/xs */
+
+box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+border-radius: 8px;
+}
+.AddUserBtn{
+
+border: 1px solid #7F56D9;
+/* Shadow/xs */
+
+box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+border-radius: 8px;
+}
+.borderBtm{
+    border-bottom: 1px solid #D0D5DD;
+}
+.table-head{
+    /* display: flex; */
+/* flex-direction: column; */
+/* align-items: center; */
+/* padding: 12px 24px; */
+/* gap: 12px; */
+
+width: 220px;
+height: 40px;
+
+/* Base/White */
+
+background: #FFFFFF;
+/* Gray/200 */
+
+/* border-bottom: 1px solid #EAECF0; */
+
+}
+.activeBadge{
+    display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px 8px 2px 6px;
+gap: 4px;
+
+/* width: 63px;
+height: 22px; */
+
+/* Success/50 */
+
+background: #ECFDF3;
+mix-blend-mode: multiply;
+border-radius: 16px;
+}
+.offlineBadge{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2px 8px 2px 6px;
+    gap: 4px;
+    
+    /* width: 63px;
+    height: 22px; */
+    
+    /* Success/50 */
+    /* Gray/100 */
+
+background: #F2F4F7;
+mix-blend-mode: multiply;
+border-radius: 16px;
+}
+.operationBadge{
+    display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px 8px;
+
+/* width: 80px;
+height: 22px; */
+
+/* Rosé/50 */
+
+background: #FFF1F3;
+mix-blend-mode: multiply;
+border-radius: 16px;
+}
+.horizonBadge{
+    display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px 8px;
+
+/* width: 101px;
+height: 22px; */
+
+/* Blue/50 */
+
+background: #EFF8FF;
+mix-blend-mode: multiply;
+border-radius: 16px;
+}
+.paginationBtn{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 14px;
+gap: 8px;
+
+/* width: 115px;
+height: 36px; */
+
+/* Base/White */
+
+background: #FFFFFF;
+/* Gray/300 */
+
+border: 1px solid #D0D5DD;
+/* Shadow/xs */
+
+box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+border-radius: 8px;
+}
