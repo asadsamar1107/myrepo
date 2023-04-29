@@ -1,0 +1,133 @@
+.b {
+  border: 2px solid red;
+}
+.g {
+  border: 2px solid green;
+}
+.input_conatiner {
+  box-sizing: border-box;
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 12px;
+  /* gap: 8px; */
+
+  /* width: 351px; */
+  /* height: 44px; */
+
+  /* Base/White */
+
+  background: #ffffff;
+  /* Gray/300 */
+
+  border: 1px solid #d0d5dd;
+  /* Shadow/xs */
+
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+}
+.btn {
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  /* gap: 8px; */
+
+  /* width: 360px;
+height: 44px; */
+
+  /* Primary/600 */
+
+  background: #7f56d9;
+  /* Primary/600 */
+
+  border: 1px solid #7f56d9;
+  /* Shadow/xs */
+
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+}
+.loginImg {
+  /* position: absolute;
+    width: 650px;
+    height: 960px;
+    left: calc(50% - 650px/2);
+    top: 0px; */
+
+  /* background: url('../../assets/login-img.png'); */
+  border: 3px solid blue;
+  width: 600px;
+  height: 550px;
+  background-image: url("/public/ok.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* .bgimage {
+        background-image: url('/ok.jpg');
+      } */
+.bgimage {
+  /* position: absolute;
+        width: 650px;
+        height: 960px;
+     left: calc(50% - 650px/2); 
+        top: 0px; */
+
+  /* background: url('../../assets/login-img.png'); */
+  /* border: 3px solid blue; */
+  width: 610px;
+  height: 570px;
+  /* left: calc(50% - 650px/2);  */
+  position: ab;
+  background-image: url("/ok.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.attributionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 32px 40px;
+  gap: 32px;
+
+  /* position: absolute; */
+
+  left: 0px;
+  top: 340px;
+
+  background: rgba(255, 255, 255, 0.3);
+  /* Background blur / lg */
+
+  backdrop-filter: blur(12px);
+}
+.testiomonial {
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  /* Background blur/sm */
+
+  backdrop-filter: blur(4px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 28px;
+}
