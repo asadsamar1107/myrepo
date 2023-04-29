@@ -5,8 +5,8 @@ import Link from "next/link";
 export default function Adminstration() {
   return (
     <Layout title="Admin">
-      <div className="w-full flex flex-col gap-6">
-        <section className={`${AdminStyle}   mx-8 `}>
+      <div className={`${AdminStyle} w-full flex flex-col gap-6`}>
+        <section className={`${AdminStyle}  w-full mx-8 `}>
           <div className={`${AdminStyle}  mt-8 w-[100%]`}>
             <h2 className="text-3xl text-gray-900 font-semibold leading-9 not-italic">
               Adminstration
@@ -17,7 +17,7 @@ export default function Adminstration() {
           </div>
 
           <div
-            className={`${AdminStyle.btn2}  pl-1 mt-6 flex flex-row items-start  isolate gap-2`}
+            className={`${AdminStyle.btn2} w-[37%] pl-1 mt-6 flex flex-row items-start  isolate gap-2`}
           >
             <div className={`${AdminStyle}`}>
               <button
@@ -37,7 +37,7 @@ export default function Adminstration() {
 
             <div>
               <button
-                className={`${AdminStyle.h}  font-semibold text-sm leading-5 text-gray-700 px-2 py-2`}
+                className={`${AdminStyle}  font-semibold text-sm leading-5 text-gray-800 px-2 py-2`}
               >
                 User Administration
               </button>
@@ -67,20 +67,17 @@ export default function Adminstration() {
           </div>
         </section>
 
-        {/* <section className={`${AdminStyle.b}  mx-8 `}>
-         <h1>okhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhddddddddddddddddddddddddddddddhhhh</h1>
-
-        </section> */}
-        <section className={`${AdminStyle}  w-full `}>
+        
+        <section className={`${AdminStyle}  w-full px-6 py-6 `}>
           <div
-            className={`${AdminStyle.table1} flex flex-col items-start p-0 bg-[#FFFFFF] w-full mx-8  `}
+            className={`${AdminStyle.table1} flex flex-col items-start p-0 bg-[#FFFFFF] w-full  `}
           >
             {/* this is main table container  */}
             <div
-              className={` ${AdminStyle["borderBtm"]} ${AdminStyle[""]} border-btm flex flex-row gap-4  w-full  py-5 px-6`}
+              className={` ${AdminStyle["borderBtm"]} ${AdminStyle[""]} border-btm flex flex-row justify-between gap-4  w-full  py-5 px-6`}
             >
               {/* this is card header  */}
-              <div className={`${AdminStyle} flex flex-col  w-[60%] gap-1 `}>
+              <div className={`${AdminStyle} flex flex-col  w-[95%] gap-1 `}>
                 <div className={`${AdminStyle}  flex flex-row   gap-4`}>
                   <h2
                     className={`${AdminStyle} font-semibold text-lg leading-7 text-gray-900 not-italic`}
@@ -144,7 +141,7 @@ export default function Adminstration() {
               </h> */}
               {/* this is content container  */}
               <table className="w-full">
-                <thead className={AdminStyle}>
+                <thead className={AdminStyle.borderBtm}>
                   <tr className="  flex flex-row ">
                     <th
                       scope="col"
@@ -211,7 +208,7 @@ export default function Adminstration() {
                 </thead>
 
                 <tbody className=" w-full flex flex-col">
-                  <tr className=" flex flex-row w-full table-hea border-btm  box-border items-center   ">
+                  <tr className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}>
                     {/* Row 1 */}
 
                     <td
@@ -288,8 +285,8 @@ export default function Adminstration() {
                     </td>
                   </tr>
 
-                  <tr className=" flex flex-row w-full table-hea border-btm  box-border items-center   ">
-                    {/* Row 1 */}
+                  <tr className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}>
+                    {/* Row 2 */}
 
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row   gap-3 w-[20%] py-6 `}
@@ -342,17 +339,7 @@ export default function Adminstration() {
                         Horizon Admin
                       </p>
 
-                      <p
-                        className={`${AdminStyle.horizonBadge} horizon-badge not-italic font-medium text-xs text-blue-700`}
-                      >
-                        Horizon Admin
-                      </p>
-
-                      <p
-                        className={`${AdminStyle.horizonBadge} horizon-badge not-italic font-medium text-xs text-blue-700`}
-                      >
-                        Horizon Admin
-                      </p>
+                     
                       
                     </td>
 
@@ -378,8 +365,8 @@ export default function Adminstration() {
                     </td>
                   </tr>
 
-                  <tr className=" flex flex-row w-full table-hea border-btm  box-border items-center   ">
-                    {/* Row 1 */}
+                  <tr className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}>
+                    {/* Row 3 */}
 
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row   gap-3 w-[20%] py-6 `}
@@ -461,8 +448,8 @@ export default function Adminstration() {
                     </td>
                   </tr>
 
-                  <tr className=" flex flex-row w-full table-hea border-btm  box-border items-center   ">
-                    {/* Row 1 */}
+                  <tr className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}>
+                    {/* Row 4 */}
 
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row   gap-3 w-[20%] py-6 `}
@@ -538,7 +525,7 @@ export default function Adminstration() {
                     </td>
                   </tr>
 
-                  <tr className=" flex flex-row w-full table-hea border-btm  box-border items-center   ">
+                  <tr className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}>
                     {/* Row 1 */}
 
                     <td
@@ -620,8 +607,8 @@ export default function Adminstration() {
                     </td>
                   </tr>
 
-                  <tr className=" flex flex-row w-full table-hea border-btm  box-border items-center   ">
-                    {/* Row 1 */}
+                  <tr className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}>
+                    {/* Row 5 */}
 
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row   gap-3 w-[20%] py-6 `}
@@ -669,17 +656,8 @@ export default function Adminstration() {
                         Horizon Admin
                       </p>
 
-                      <p
-                        className={`${AdminStyle.horizonBadge} horizon-badge not-italic font-medium text-xs text-blue-700`}
-                      >
-                        Horizon Admin
-                      </p>
-
-                      <p
-                        className={`${AdminStyle.horizonBadge} horizon-badge not-italic font-medium text-xs text-blue-700`}
-                      >
-                        Horizon Admin
-                      </p>
+                      
+                     
                       <p
 
                       

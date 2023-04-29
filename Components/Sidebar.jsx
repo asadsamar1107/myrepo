@@ -4,7 +4,7 @@ import navlogo from "../public/assets/images/Content.svg";
 import Layout from "./Layout";
 export default function Sidebar() {
   return (
-    <div className={sidebarStyle.main}>
+    <div className={`${sidebarStyle.main} h-full`}>
       <div className="flex flex-col justify-between items-start h-full ">
         <section className="  w-full ">
           {/* Navigation  */}
@@ -31,19 +31,29 @@ export default function Sidebar() {
              
             </div>
 
-            <div className="px-6 w-full ">
-              {/* Search  */}
+            {/* <div className="px-6 w-full ">
+              
               <div className={sidebarStyle}>
                 <input type="text" placeholder="" className={sidebarStyle.inputBox}></input>
               </div>
             
-            </div>
+            </div> */}
+
+<div className="px-6 w-full ">
+               
+               <input
+                 className={`${sidebarStyle.input_conatiner}  placeholder:font-normal text-base text-gray-500`}
+                 id="username"
+                 type="text"
+                 placeholder="Search"
+               />
+             </div>
 
             <div className={`${sidebarStyle}`}>
               {/* Navigation  */}
               <div className="px-[19px] gap-1">
                 <div className={`${sidebarStyle} px-3 py-2`}>
-                   <div className={`${sidebarStyle.g} flex flex-row gap-[15px] items-center`}>
+                   <div className={`${sidebarStyle} flex flex-row gap-[15px] items-center`}>
                     
                  <div className={`${sidebarStyle} px-0.5`}>
                  <Image

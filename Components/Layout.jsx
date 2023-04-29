@@ -7,14 +7,14 @@ import Footer from "./Footer";
 
 export default function Layout({children,title}){
     return(
-     <div className="h-screen flex flex-row justify-start">
+     <div className="h-screen flex flex-row justify-start w-full h-full">
         <Head>
             <title>{title}</title>
             <link  />
         </Head>
         {/* <Header/> */}
         <Sidebar/>
-         <main>
+         <main className="w-full">
             {children}
 
          </main> 
