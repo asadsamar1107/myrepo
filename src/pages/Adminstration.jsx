@@ -2,7 +2,30 @@ import Layout from "../../Components/Layout";
 import AdminStyle from "../styles/admin.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import Modal from "../../Components/Modal";
+import AddUserStyle from "../styles/AddUser.module.css"
+import { useState } from "react";
 export default function Adminstration() {
+
+const [showModal,setShowModal]=useState(false);
+const [selectValue,setSelectValue]=useState("")
+const [firstName,setFirstName]=useState("")
+const [lastName,setLastName]=useState("")
+const [email,setEmail]=useState("")
+
+
+const handleFormSubmit=(e)=>
+{
+e.preventDefault();
+console.log("okat")
+console.log(firstName)
+console.log(lastName)
+console.log(email)
+console.log(selectValue)
+
+}
+
+
   return (
     <Layout title="Admin">
       <div className={`${AdminStyle} w-full flex flex-col gap-6`}>
@@ -118,7 +141,7 @@ export default function Adminstration() {
                 </div>
 
                 <div className="pb-2">
-                  <Link href="/AddUser"><button
+                  <button onClick={()=>{setShowModal(true)}}
                     className={`${AdminStyle["AddUserBtn"]} ${AdminStyle["downloadBtn"]}  px-3 py-2 gap-1 add-user-btn download-btn flex flex-row  items-center justify-center box-border bg-primary-600 bg-[#7F56D9]  text-sm font-semibold text-[#FFFFFF] not-italic`}
                   >
                     <Image
@@ -128,7 +151,149 @@ export default function Adminstration() {
                       height={11}
                     />
                     <p >Add user</p>
-                  </button></Link>
+                  </button>
+                  <Modal show={showModal} onClose={() => setShowModal(false)}>
+        <div className=" w-full">
+          <div className="">
+            <div className="">
+              <section
+                className={`${AddUserStyle} flex flex-row px-4 py-5  gap-3 w-full`}
+              >
+                {/* Nav Section  */}
+                <button className={`${AddUserStyle.btn}  px-[12px] py-1  `}>
+                  {/* <img src={addUserIcon} alt=""></img> */}
+                  <Image
+                    src="./assets/images/Add-user-icon.svg"
+                    alt="My Image"
+                    width={20}
+                    height={18}
+                  />
+                </button>
+                <div className={`${AddUserStyle} flex flex-col  w-full `}>
+                  <div className={`${AddUserStyle} flex flex-row justify-between`}>
+                    <p className="not-italic font-semibold text-gray-900 text-lg">
+                      Add User
+                    </p>
+
+                    <button onClick={()=>{setShowModal(false)}}><Image src="/assets/images/x-icon.svg" width="12" height="12"></Image> </button>
+                  </div>
+                  <div>
+                  <p className="not-italic font-normal text-sm text-gray-600">
+                    Add a new user to your organization
+                  </p>
+                  </div>
+                </div>
+              </section>
+
+              <section
+                className={`${AddUserStyle.bdrBtm} w-full px-5 py-5 bdr-btm `}
+              >
+                {/* form container  */}
+                <form onSubmit={handleFormSubmit} className="w-full  ">
+                  <div className="flex flex-col mb-3 ">
+                    <label
+                      className="text-sm font-medium text-gray-700 pb-[6px]"
+                      htmlFor="username"
+                    >
+                      First Name*
+                    </label>
+                    <input
+                      className={AddUserStyle.input_conatiner}
+                      name="firstName"
+                      type="text"
+                      value={firstName}
+                      onChange={(e)=>{setFirstName(e.target.value)}}
+                      required
+                    />
+                  </div>
+
+                  <div className="flex flex-col mb-3 ">
+                    <label
+                      className="text-sm font-medium text-gray-700 pb-[6px]"
+                      
+                    >
+                      Last Name*
+                    </label>
+                    <input
+                      className={AddUserStyle.input_conatiner}
+                      name="lastName"
+                      type="text"
+                      value={lastName}
+                      onChange={(e)=>setLastName(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className="flex flex-col mb-3 ">
+                    <label
+                      className="text-sm font-medium text-gray-700 pb-[6px]"
+                      htmlFor="username"
+                    >
+                      Email Address*
+                    </label>
+                    <input
+                      className={AddUserStyle.input_conatiner}
+                      name="email"
+                      type="email"
+                      value={email}
+                      onChange={(e)=>
+                      {
+                        setEmail(e.target.value)
+                      }}
+                      required
+                    />
+                  </div>
+                  <div className="flex flex-col mb-3 ">
+                    <label
+                      className="text-sm font-medium text-gray-700 pb-[6px]"
+                      htmlFor="username"
+                      
+                    >
+                      Role
+                    </label>
+                    {/* <input
+                 className="input-conatiner"
+                 id="username"
+                 type="se"
+               /> */}
+                    <select value={selectValue} onChange={(e)=>{setSelectValue(e.target.value)}} className={AddUserStyle.input_conatiner}>
+                      <option value="Administrator"  className="not-italic font-normal text-base text-black">
+                        Administrator
+                      </option>
+                      <option value="User" className="not-italic font-normal text-base text-black">
+                        User
+                      </option>
+                      
+
+                      
+                    </select>
+                  </div>
+                </form>
+              </section>
+              <section className="w-full px-5 py-5 ">
+                <div className=" flex flex-row gap-3">
+                  <div className="">
+                    <button onClick={()=>{setShowModal(false)}}
+                      className={`${AddUserStyle.add_user2} add-user2 text px-10 py-1.5 bg-[#FFFFFF]font-semibold not-italic text-base text-gray-700`}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                  <div className="">
+                    <button onClick={handleFormSubmit}
+                      className={`${AddUserStyle.add_user2} add-user2 text px-10 py-1.5 bg-[#7F56D9] font-semibold not-italic text-base text-[#FFFFFF]`}
+                    >
+                      Add User
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </Modal>
+         
+        
                 </div>
               </div>
             </div>

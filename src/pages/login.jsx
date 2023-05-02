@@ -1,12 +1,32 @@
 import React from "react";
-import Link from "next/link";
 import LoginStyle from "../styles/Login.module.css";
-import Layout from "../../Components/Layout";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { Adminstration } from '@/pages/Adminstration';
 export default function Login() {
+  const router=useRouter();
+  const handleSubmit=(event)=>
+    {
+      event.preventDefault();
+      // console.log("okay")
+      const formData = new FormData(event.target);
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    if(email==="tachyon@123" && password==="tachyon")
+    {
+      router.push("/Adminstration")
+    }
+    else {
+      alert("Invalid email or password");
+    }
+
+    }
+
   return (
+    
     <div
-      className={`${LoginStyle} w-full flex flex-row items-center bg-[#FFFFFF]`}
+      className={`${LoginStyle} w-full flex flex-row items-center bg-[#FFFFFF] `}
     >
       <section
         className={`${LoginStyle} w-[50%] flex flex-col justify-between items-center gap-[60px]`}
@@ -47,7 +67,7 @@ export default function Login() {
 
             <div className={`${LoginStyle}`}>
               {/* Form Container  */}
-              <form className="w-full flex flex-col gap-5 ">
+              <form onSubmit={handleSubmit} className="w-full flex flex-col gap-5 ">
                 <div className="flex flex-col gap-[6px] w-full ">
                   <div className={LoginStyle}>
                     <label
@@ -60,9 +80,10 @@ export default function Login() {
                   <div className={`${LoginStyle} w-full`}>
                     <input
                       className={`${LoginStyle.input_conatiner} w-full placeholder:font-normal text-base text-gray-500`}
-                      id="username"
-                      type="text"
+                      name="email"
+                      type="email"
                       placeholder="Enter your email"
+                      required
                     />
                   </div>
                 </div>
@@ -79,9 +100,10 @@ export default function Login() {
                   <div className={LoginStyle}>
                     <input
                       className={`${LoginStyle.input_conatiner} w-full placeholder:font-normal text-base text-gray-500`}
-                      id="username"
+                      name="password"
                       type="password"
                       placeholder="Enter Password"
+                      required
                     />
                   </div>
                   <div>
@@ -92,7 +114,7 @@ export default function Login() {
                 </div>
 
                 <div className={`${LoginStyle.btn}`}>
-                  <button>
+                  <button >
                     <p className="not-italic font-semibold text-base text-[#FFFFFF]">
                       Login
                     </p>
@@ -129,7 +151,7 @@ export default function Login() {
         </section>
       </section>
 
-      <section className={`${LoginStyle} bg-gray-50 p-2 `}>
+      <section className={`${LoginStyle} bg-gray-50 p-2  `}>
         <div className={`${LoginStyle.bgimage} relative`}>
           <div className={`${LoginStyle.attributionCard} w-full absolute`}>
             <div>
