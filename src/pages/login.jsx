@@ -2,29 +2,40 @@ import React from "react";
 import LoginStyle from "../styles/Login.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { Adminstration } from '@/pages/Adminstration';
+import { Adminstration } from "@/pages/Adminstration";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import * as Yup from "yup"
+const FormSchema=Yup.object().shape({
+    email: Yup.string()
+    .required("This field is required")
+    .email("Please enter a valid email"),
+
+    password: Yup.string()
+    .required("This field is required")
+    // .password("password must be atleast 8 characters"),
+   
+})
+
+
+
 export default function Login() {
   const router=useRouter();
-  const handleSubmit=(event)=>
+  const handleSubmit=(values)=>
     {
-      event.preventDefault();
-      // console.log("okay")
-      const formData = new FormData(event.target);
-    const email = formData.get("email");
-    const password = formData.get("password");
-
-    if(email==="tachyon@123" && password==="tachyon")
-    {
-      router.push("/Adminstration")
-    }
-    else {
-      alert("Invalid email or password");
-    }
-
+       
+       if(values.email=="tachyon@123" && values.password=="1234")
+       {
+        router.push("/Adminstration");
+       }
+       else{
+        alert("email or password may be incorrect!")
+       }
+      console.log(values.email)
+      console.log(values.password)
+        
     }
 
   return (
-    
     <div
       className={`${LoginStyle} w-full flex flex-row items-center bg-[#FFFFFF] `}
     >
@@ -67,60 +78,77 @@ export default function Login() {
 
             <div className={`${LoginStyle}`}>
               {/* Form Container  */}
-              <form onSubmit={handleSubmit} className="w-full flex flex-col gap-5 ">
-                <div className="flex flex-col gap-[6px] w-full ">
-                  <div className={LoginStyle}>
-                    <label
-                      className="text-sm font-medium text-gray-700 "
-                      htmlFor="username"
-                    >
-                      Email*
-                    </label>
-                  </div>
-                  <div className={`${LoginStyle} w-full`}>
-                    <input
-                      className={`${LoginStyle.input_conatiner} w-full placeholder:font-normal text-base text-gray-500`}
-                      name="email"
-                      type="email"
-                      placeholder="Enter your email"
-                      required
-                    />
-                  </div>
-                </div>
+              <Formik
+                    initialValues={{
+                     
+                      email: "",
+                      password:""
+                      
+                    }}
+                    validationSchema={FormSchema}
+                    onSubmit={handleSubmit}
+                  >
+                    {({ values, setFieldValue }) => (
+                    
+                       <Form className="w-full flex flex-col gap-4">
+                        <div className="flex flex-col gap-[6px] w-full">
+                          <div className={LoginStyle}>
+                          <label
+                            className="text-sm font-medium text-gray-700"
+                            htmlFor="name"
+                          >
+                            Email*
+                          </label>
+                          </div>
+                          <div className={LoginStyle}>
+                          <Field
+                            className={`${LoginStyle.input_conatiner} w-full placeholder:font-normal text-base text-gray-500`}
+                            name="email"
+                            id="email"
+                            placeholder="Enter your email"
+                          />
+                          </div>
+                          <div className="text-red-500 text-xs ">
+                            <ErrorMessage name="email" />
+                          </div>
+                        </div>
 
-                <div className="flex flex-col gap-[6px] ">
-                  <div className={LoginStyle}>
-                    <label
-                      className="text-sm font-medium text-gray-700 "
-                      htmlFor="password"
-                    >
-                      Password*
-                    </label>
-                  </div>
-                  <div className={LoginStyle}>
-                    <input
-                      className={`${LoginStyle.input_conatiner} w-full placeholder:font-normal text-base text-gray-500`}
-                      name="password"
-                      type="password"
-                      placeholder="Enter Password"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <h1 className="not-italic font-normal text-sm text-gray-600">
-                      Must be at least 8 characters.
-                    </h1>
-                  </div>
-                </div>
+                        <div className="flex flex-col gap-[6px] w-full">
+                          <div className={LoginStyle}>
+                          <label
+                            className="text-sm font-medium text-gray-700 mb-2"
+                            htmlFor="password"
+                          >
+                            Password*
+                          </label>
+                          </div>
+                          <div className={LoginStyle}>
+                          <Field
+                            type="password"
+                            className={`${LoginStyle.input_conatiner} w-full placeholder:font-normal text-base text-gray-500`}
+                            name="password"
+                            id="password"
+                            placeholder="Enter Password"
+                          />
+                          </div>
+                          <div className="text-red-500 text-xs ">
+                            <ErrorMessage name="password" />
+                          </div>
+                        </div>
+                        
 
-                <div className={`${LoginStyle.btn}`}>
-                  <button >
-                    <p className="not-italic font-semibold text-base text-[#FFFFFF]">
-                      Login
-                    </p>
-                  </button>
-                </div>
-              </form>
+
+                        
+                        <div className={`${LoginStyle.btn}`}>
+                    <input type="submit"  className="not-italic font-semibold text-base text-[#FFFFFF] cursor-pointer"
+                     
+                   />
+                 
+                        </div>
+                      </Form>
+                    
+                    )}
+                  </Formik>
             </div>
           </div>
         </section>
@@ -181,12 +209,11 @@ export default function Login() {
                 </div>
               </div>
 
-
               <div
                 className={`${LoginStyle} w-full flex flex-row items-start justify-between `}
               >
                 <div className={`${LoginStyle} w-[70%] flex flex-col gap-1`}>
-                <div>
+                  <div>
                     <p className="not-italic font-semibold text-lg text-[#FFFFFF]">
                       SOC Manager,
                     </p>
@@ -200,17 +227,28 @@ export default function Login() {
                 <div
                   className={`${LoginStyle} flex flex-row items-start gap-1 mt-3`}
                 >
-                   <div className={`${LoginStyle} flex flex-row  gap-8 `}>
-                  <div className={`${LoginStyle.testiomonial}`}>
-                    <button><Image src="/assets/images/testiomon-left-arrow.svg" width="14" height="14" /></button>
+                  <div className={`${LoginStyle} flex flex-row  gap-8 `}>
+                    <div className={`${LoginStyle.testiomonial}`}>
+                      <button>
+                        <Image
+                          src="/assets/images/testiomon-left-arrow.svg"
+                          width="14"
+                          height="14"
+                        />
+                      </button>
+                    </div>
+                    <div className={`${LoginStyle.testiomonial}`}>
+                      <button className="">
+                        <Image
+                          src="/assets/images/testiomon-right-arrow.svg"
+                          width="14"
+                          height="14"
+                        />
+                      </button>
+                    </div>
                   </div>
-                  <div className={`${LoginStyle.testiomonial}`}>
-                  <button className=""><Image src="/assets/images/testiomon-right-arrow.svg" width="14" height="14" /></button>
-                  </div>
-                </div>
                 </div>
               </div>
-            
             </div>
           </div>
         </div>

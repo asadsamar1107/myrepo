@@ -1,8 +1,7 @@
 import Layout from "../../Components/Layout";
 import AdminStyle from "../styles/admin.module.css";
 import Image from "next/image";
-import Link from "next/link";
-import Modal from "../../Components/Modal";
+import Modal from "../../Components/AddUserModal";
 import AddUserStyle from "../styles/AddUser.module.css"
 import { useState } from "react";
 export default function Adminstration() {
@@ -17,7 +16,7 @@ const [email,setEmail]=useState("")
 const handleFormSubmit=(e)=>
 {
 e.preventDefault();
-console.log("okat")
+console.log("okay")
 console.log(firstName)
 console.log(lastName)
 console.log(email)
