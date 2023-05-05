@@ -4,6 +4,7 @@ import Image from "next/image";
 import Modal from "../../Components/AddUserModal";
 import AddUserStyle from "../styles/AddUser.module.css"
 import { useState } from "react";
+import Link from "next/link";
 export default function Adminstration() {
 
 const [showModal,setShowModal]=useState(false);
@@ -27,9 +28,9 @@ console.log(selectValue)
 
   return (
     <Layout title="Admin">
-      <div className={`${AdminStyle} w-full flex flex-col gap-6`}>
-        <section className={`${AdminStyle}  w-full mx-8 `}>
-          <div className={`${AdminStyle}  mt-8 w-[100%]`}>
+      <section className="flex flex-col items-start pt-8 gap-6">
+      <section className={`px-8`}>
+          <div className={` w-[100%]`}>
             <h2 className="text-3xl text-gray-900 font-semibold leading-9 not-italic">
               Adminstration
             </h2>
@@ -39,11 +40,11 @@ console.log(selectValue)
           </div>
 
           <div
-            className={`${AdminStyle.btn2} w-[37%] pl-1 mt-6 flex flex-row items-start  isolate gap-2`}
+            className={`btn2  pl-1 mt-6 flex flex-row items-start  isolate gap-2`}
           >
-            <div className={`${AdminStyle}`}>
+            <div className="">
               <button
-                className={`${AdminStyle.h}  font-semibold text-sm leading-5 text-gray-700 px-2 py-2`}
+                className={`border_Right font-semibold text-sm leading-5 text-gray-700 px-4 py-2`}
               >
                 My details
               </button>
@@ -51,7 +52,7 @@ console.log(selectValue)
 
             <div>
               <button
-                className={`${AdminStyle.h}  font-semibold text-sm leading-5 text-gray-700 px-2 py-2`}
+                className={`border_Right  font-semibold text-sm leading-5 text-gray-700 px-4 py-2`}
               >
                 Password
               </button>
@@ -59,7 +60,7 @@ console.log(selectValue)
 
             <div>
               <button
-                className={`${AdminStyle}  font-semibold text-sm leading-5 text-gray-800 px-2 py-2`}
+                className={` font-semibold text-sm leading-5 text-gray-800 px-4 py-2`}
               >
                 User Administration
               </button>
@@ -67,23 +68,27 @@ console.log(selectValue)
           </div>
         </section>
 
-        <section className={`${AdminStyle}    mx-8 `}>
+        <section className=" w-full flex flex-col items-start p-0 gap-6  px-8 ">
           {/* this is sub header  */}
-          <div className=" flex flex-row ">
-            <div className={`${AdminStyle}`}>
-              <button className=" px-[12px] py-[7px] not-italic font-semibold text-sm text-gray-700 leading-5">
+          <div className="  w-full flex flex-row items-start gap-2">
+            <div className="">
+             <Link href="/Adminstration">
+             <button className=" px-[12px] py-[7px] not-italic font-semibold text-sm text-gray-700 leading-5">
                 Users
               </button>
+             </Link>
             </div>
 
-            <div className={`${AdminStyle}`}>
+            <div className="">
+              <Link href="/Role">
               <button className=" px-[12px] py-[7px] not-italic font-semibold text-sm text-gray-500 leading-5">
                 Roles
               </button>
+              </Link>
             </div>
-            <div className={`${AdminStyle}`}>
+            <div className="">
               <button className=" px-[12px] py-[7px] not-italic font-semibold text-sm text-gray-500 leading-5">
-                Permissions
+              Permissions
               </button>
             </div>
           </div>
@@ -107,7 +112,7 @@ console.log(selectValue)
                     Team members
                   </h2>
                   <p
-                    className={`${AdminStyle}  bg-blue-50 mix-blend-multiply rounded-2xl font-medium text-xs py-[3px] px-2 text-[#6941C6] leading-4 align-middle not-italic`}
+                    className={`${AdminStyle}  bg-blue-50 mix-blend-multiply rounded-2xl font-medium text-xs pt-[6px] px-2 text-[#6941C6] leading-4 align-middle not-italic`}
                   >
                     48 users
                   </p>
@@ -909,7 +914,9 @@ console.log(selectValue)
 
           </div>
         </section>
-      </div>
+
+        </section>
+      
     </Layout>
   );
 }

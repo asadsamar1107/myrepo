@@ -2,7 +2,7 @@ import {useState,useEffect} from 'react'
 import  ReactDOM  from 'react-dom'
 import addUserStyle from "../src/styles/AddUser.module.css"
 
-export default function Modal({show,onClose,children}){
+export default function RoleModal({show,onClose,children}){
     const [isBrowser,setIsBrowser]=useState(false)
 
     useEffect(()=>
@@ -13,10 +13,10 @@ export default function Modal({show,onClose,children}){
   
 
     const modalContent=show ?(
-        <div className={`${addUserStyle.overlay} w-full h-full`}>
-            <div className={`${addUserStyle.modal } `}>
+        <div className={`${addUserStyle.overlay}  w-full h-ful`}>
+            <div className={`${addUserStyle.modal } absolute top-20 w-[50%] h-ful`}>
                
-            <div className={`{addUserStyle.body} w-full`}>{children}</div>
+            <div className={`{addUserStyle.body} w-full `}>{children}</div>
             </div>
         </div>
 
