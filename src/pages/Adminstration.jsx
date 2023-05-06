@@ -2,34 +2,31 @@ import Layout from "../../Components/Layout";
 import AdminStyle from "../styles/admin.module.css";
 import Image from "next/image";
 import Modal from "../../Components/AddUserModal";
-import AddUserStyle from "../styles/AddUser.module.css"
+import AddUserStyle from "../styles/AddUser.module.css";
+import PermissionModal from "../../Components/PermissionModal";
 import { useState } from "react";
 import Link from "next/link";
 export default function Adminstration() {
+  const [showModal, setShowModal] = useState(false);
+  const [showPermissionModal, setShowPermissionModal] = useState(false);
+  const [selectValue, setSelectValue] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
 
-const [showModal,setShowModal]=useState(false);
-const [selectValue,setSelectValue]=useState("")
-const [firstName,setFirstName]=useState("")
-const [lastName,setLastName]=useState("")
-const [email,setEmail]=useState("")
-
-
-const handleFormSubmit=(e)=>
-{
-e.preventDefault();
-console.log("okay")
-console.log(firstName)
-console.log(lastName)
-console.log(email)
-console.log(selectValue)
-
-}
-
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("okay");
+    console.log(firstName);
+    console.log(lastName);
+    console.log(email);
+    console.log(selectValue);
+  };
 
   return (
     <Layout title="Admin">
-      <section className="flex flex-col items-start pt-8 gap-6">
-      <section className={`px-8`}>
+      <section className="flex flex-col items-start pt-8 gap-3">
+        <section className={`px-8`}>
           <div className={` w-[100%]`}>
             <h2 className="text-3xl text-gray-900 font-semibold leading-9 not-italic">
               Adminstration
@@ -72,40 +69,44 @@ console.log(selectValue)
           {/* this is sub header  */}
           <div className="  w-full flex flex-row items-start gap-2">
             <div className="">
-             <Link href="/Adminstration">
-             <button className=" px-[12px] py-[7px] not-italic font-semibold text-sm text-gray-700 leading-5">
-                Users
-              </button>
-             </Link>
+              <Link href="/Adminstration">
+                <button className=" px-[12px] py-[7px] not-italic font-semibold text-sm text-gray-700 leading-5">
+                  Users
+                </button>
+              </Link>
             </div>
 
             <div className="">
               <Link href="/Role">
-              <button className=" px-[12px] py-[7px] not-italic font-semibold text-sm text-gray-500 leading-5">
-                Roles
-              </button>
+                <button className=" px-[12px] py-[7px] not-italic font-semibold text-sm text-gray-500 leading-5">
+                  Roles
+                </button>
               </Link>
             </div>
             <div className="">
-              <button className=" px-[12px] py-[7px] not-italic font-semibold text-sm text-gray-500 leading-5">
-              Permissions
+              <button
+                onClick={() => {
+                  setShowPermissionModal(true);
+                }}
+                className=" px-[12px] py-[7px] not-italic font-semibold text-sm text-gray-500 leading-5"
+              >
+                Permissions
               </button>
             </div>
           </div>
         </section>
 
-        
-        <section className={`${AdminStyle}  w-full px-6 py-6 `}>
+        <section className={`${AdminStyle}  w-full px-[30px] py-6 `}>
           <div
             className={`${AdminStyle.table1} flex flex-col items-start p-0 bg-[#FFFFFF] w-full  `}
           >
             {/* this is main table container  */}
             <div
-              className={` ${AdminStyle["borderBtm"]} ${AdminStyle[""]} border-btm flex flex-row justify-between gap-4  w-full  py-5 px-6`}
+              className={`  border_Bottom flex flex-row justify-end gap-4  w-full  py-5 px-6`}
             >
               {/* this is card header  */}
-              <div className={`${AdminStyle} flex flex-col  w-[95%] gap-1 `}>
-                <div className={`${AdminStyle}  flex flex-row   gap-4`}>
+              <div className={` flex flex-col  gap-1 w-full `}>
+                <div className=" flex flex-row   gap-4">
                   <h2
                     className={`${AdminStyle} font-semibold text-lg leading-7 text-gray-900 not-italic`}
                   >
@@ -117,23 +118,21 @@ console.log(selectValue)
                     48 users
                   </p>
                 </div>
-                <div className={`${AdminStyle}`}>
+
+                <div className="">
                   <p
-                    className={`${AdminStyle} text-sm text-gray-600 font-normal not-italic`}
+                    className={` text-sm text-gray-600 font-normal not-italic`}
                   >
                     Manage your team members and their account permissions here.
                   </p>
                 </div>
               </div>
 
-              <div
-                className={`${AdminStyle} w-[40%] flex flex-row gap-2 py-0.5 mb-2 `}
-              >
-                <div className={`${AdminStyle} `}>
+              <div className={`  w-full flex flex-row justify-end gap-2 pt-2 `}>
+                <div className={` `}>
                   <button
-                    className={`${AdminStyle.downloadBtn} px-3 py-2  gap-1  download-btn flex flex-row  items-center justify-center box-border bg-[#FFFFFF]  text-sm font-semibold text-gray-700 not-italic`}
+                    className={`downloadBtn px-3 py-2  gap-1  download-btn flex flex-row  items-center justify-center box-border bg-[#FFFFFF]  text-sm font-semibold text-gray-700 not-italic`}
                   >
-                    {/* <img className="" src={downloadIcon}></img> */}
                     <Image
                       src="./assets/images/download-icon.svg"
                       alt="My Image"
@@ -145,8 +144,11 @@ console.log(selectValue)
                 </div>
 
                 <div className="pb-2">
-                  <button onClick={()=>{setShowModal(true)}}
-                    className={`${AdminStyle["AddUserBtn"]} ${AdminStyle["downloadBtn"]}  px-3 py-2 gap-1 add-user-btn download-btn flex flex-row  items-center justify-center box-border bg-primary-600 bg-[#7F56D9]  text-sm font-semibold text-[#FFFFFF] not-italic`}
+                  <button
+                    onClick={() => {
+                      setShowModal(true);
+                    }}
+                    className={`AddUserBtn downloadBtn  px-3 py-2 gap-1 add-user-btn download-btn flex flex-row  items-center justify-center box-border bg-primary-600 bg-[#7F56D9]  text-sm font-semibold text-[#FFFFFF] not-italic`}
                   >
                     <Image
                       src="./assets/images/plus-icon.svg"
@@ -154,8 +156,9 @@ console.log(selectValue)
                       width={11}
                       height={11}
                     />
-                    <p >Add user</p>
+                    <p>Add user</p>
                   </button>
+
                   <Modal show={showModal} onClose={() => setShowModal(false)}>
         <div className=" w-full">
           <div className="">
@@ -296,8 +299,7 @@ console.log(selectValue)
           </div>
         </div>
       </Modal>
-         
-        
+
                 </div>
               </div>
             </div>
@@ -377,7 +379,9 @@ console.log(selectValue)
                 </thead>
 
                 <tbody className=" w-full flex flex-col">
-                  <tr className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}>
+                  <tr
+                    className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}
+                  >
                     {/* Row 1 */}
 
                     <td
@@ -454,7 +458,9 @@ console.log(selectValue)
                     </td>
                   </tr>
 
-                  <tr className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}>
+                  <tr
+                    className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}
+                  >
                     {/* Row 2 */}
 
                     <td
@@ -507,9 +513,6 @@ console.log(selectValue)
                       >
                         Horizon Admin
                       </p>
-
-                     
-                      
                     </td>
 
                     <td
@@ -534,7 +537,9 @@ console.log(selectValue)
                     </td>
                   </tr>
 
-                  <tr className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}>
+                  <tr
+                    className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}
+                  >
                     {/* Row 3 */}
 
                     <td
@@ -617,7 +622,9 @@ console.log(selectValue)
                     </td>
                   </tr>
 
-                  <tr className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}>
+                  <tr
+                    className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}
+                  >
                     {/* Row 4 */}
 
                     <td
@@ -628,7 +635,7 @@ console.log(selectValue)
                         className="w-[16px] h-[16px] mt-0.5"
                       ></input>
                       <p className="not-italic font-medium text-sm text-gray-900">
-                      Candice Wu
+                        Candice Wu
                       </p>
                     </td>
 
@@ -653,7 +660,7 @@ console.log(selectValue)
                       className={`${AdminStyle} pl-6 flex flex-row   gap-3 w-[20%] py-6 `}
                     >
                       <p className="font-normal text-sm leading-5 text-gray-600">
-                      candice@untitledui.com
+                        candice@untitledui.com
                       </p>
                     </td>
 
@@ -694,7 +701,9 @@ console.log(selectValue)
                     </td>
                   </tr>
 
-                  <tr className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}>
+                  <tr
+                    className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}
+                  >
                     {/* Row 1 */}
 
                     <td
@@ -705,7 +714,7 @@ console.log(selectValue)
                         className="w-[16px] h-[16px] mt-0.5"
                       ></input>
                       <p className="not-italic font-medium text-sm text-gray-900">
-                      Drew Cano
+                        Drew Cano
                       </p>
                     </td>
 
@@ -719,7 +728,7 @@ console.log(selectValue)
                         height={6}
                       />
 
-                       <p
+                      <p
                         className={`${AdminStyle.activeBadge} not-italic font-medium text-xs text-[#027A48]`}
                       >
                         Active
@@ -737,7 +746,7 @@ console.log(selectValue)
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row   gap-3 w-[30%] py-6 `}
                     >
-                       <p
+                      <p
                         className={`${AdminStyle.horizonBadge} horizon-badge not-italic font-medium text-xs text-blue-700`}
                       >
                         Horizon Admin
@@ -776,7 +785,9 @@ console.log(selectValue)
                     </td>
                   </tr>
 
-                  <tr className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}>
+                  <tr
+                    className={`${AdminStyle.borderBtm} flex flex-row w-full table-hea border-btm  box-border items-center   `}
+                  >
                     {/* Row 5 */}
 
                     <td
@@ -787,7 +798,7 @@ console.log(selectValue)
                         className="w-[16px] h-[16px] mt-0.5"
                       ></input>
                       <p className="not-italic font-medium text-sm text-gray-900">
-                      Orlando Diggs
+                        Orlando Diggs
                       </p>
                     </td>
 
@@ -812,7 +823,7 @@ console.log(selectValue)
                       className={`${AdminStyle} pl-6 flex flex-row   gap-3 w-[20%] py-6 `}
                     >
                       <p className="font-normal text-sm leading-5 text-gray-600">
-                      orlando@untitledui.com
+                        orlando@untitledui.com
                       </p>
                     </td>
 
@@ -825,11 +836,7 @@ console.log(selectValue)
                         Horizon Admin
                       </p>
 
-                      
-                     
                       <p
-
-                      
                         className={`${AdminStyle.activeBadge} active-badge not-italic font-medium text-xs text-prima`}
                       >
                         Viewer
@@ -862,61 +869,488 @@ console.log(selectValue)
             </div>
 
             {/* Footer  */}
-            <div className={`${AdminStyle.borderBtm} border-btm w-full h-full py-2`}>
-           <div className="  flex flex-row justify-between py-5 px-6">
-           <div className="">
-                <button className={`${AdminStyle.paginationBtn} px-3 py-2 gap-2  download-btn flex flex-row  items-center justify-center box-border bg-[#FFFFFF]  text-sm font-semibold text-gray-700 not-italic`}>
-                <Image
-                            src="./assets/images/left-arrow.svg"
-                            alt="My Image"
-                            width={11}
-                            height={11}
-                          />
-                  <p> Previous</p>
-                </button>
+            <div
+              className={`${AdminStyle.borderBtm} border-btm w-full h-full py-2`}
+            >
+              <div className="  flex flex-row justify-between py-5 px-6">
+                <div className="">
+                  <button
+                    className={`${AdminStyle.paginationBtn} px-3 py-2 gap-2  download-btn flex flex-row  items-center justify-center box-border bg-[#FFFFFF]  text-sm font-semibold text-gray-700 not-italic`}
+                  >
+                    <Image
+                      src="./assets/images/left-arrow.svg"
+                      alt="My Image"
+                      width={11}
+                      height={11}
+                    />
+                    <p> Previous</p>
+                  </button>
+                </div>
+                <div className="flex flex-row not-italic font-medium text-sm text-center text-gray-800">
+                  <div className="px-3 py-2  ">
+                    <button>1</button>
+                  </div>
+                  <div className="px-3 py-2 ">
+                    <button>2</button>
+                  </div>
+                  <div className="px-3 py-2 ">
+                    <button>3</button>
+                  </div>
+                  <div className="px-3 py-2 ">
+                    <button>4</button>
+                  </div>
+                  <div className="px-3 py-2 ">
+                    <button>5</button>
+                  </div>{" "}
+                  <div className="px-3 py-2 ">
+                    <button>6</button>
+                  </div>
+                </div>
+                <div className="">
+                  <button
+                    className={`${AdminStyle.paginationBtn} px-3 py-2 gap-2  download-btn flex flex-row  items-center justify-center box-border bg-[#FFFFFF]  text-sm font-semibold text-gray-700 not-italic`}
+                  >
+                    <p> Next</p>
+                    <Image
+                      src="./assets/images/right-arrow.svg"
+                      alt="My Image"
+                      width={11}
+                      height={11}
+                    />
+                  </button>
+                </div>
               </div>
-            <div className="flex flex-row not-italic font-medium text-sm text-center text-gray-800">
-              <div className="px-3 py-2  ">
-                <button>1</button>
-
-              </div>
-              <div className="px-3 py-2 ">
-              <button>2</button>
-              </div>
-              <div className="px-3 py-2 ">
-              <button>3</button>
-              </div>
-              <div className="px-3 py-2 ">
-              <button>4</button>
-              </div>
-              <div className="px-3 py-2 ">
-              <button>5</button>
-              </div> <div className="px-3 py-2 ">
-              <button>6</button>
-              </div>
-              
             </div>
-            <div className="">
-                <button className={`${AdminStyle.paginationBtn} px-3 py-2 gap-2  download-btn flex flex-row  items-center justify-center box-border bg-[#FFFFFF]  text-sm font-semibold text-gray-700 not-italic`}>
-                 
-                  <p> Next</p>
-                  <Image
-                            src="./assets/images/right-arrow.svg"
-                            alt="My Image"
-                            width={11}
-                            height={11}
-                          />
-                </button>
+          </div>
+        </section>
+        <PermissionModal
+          show={showPermissionModal}
+          onClose={() => setShowPermissionModal(false)}
+        >
+          <div className=" w-full flex flex-col gap-4 px-5 pt-2 ">
+            <section className={`border_Bottom  flex flex-row px-4 py-5  gap-3 w-full`}>
+              {/* Nav Section  */}
+
+              <div className={` flex flex-col  w-full `}>
+                <div className={` flex flex-row justify-between w-full`}>
+                  <p className="not-italic font-semibold text-gray-900 text-lg">
+                    Administrator
+                  </p>
+
+                  <button
+                    onClick={() => {
+                      setShowPermissionModal(false);
+                    }}
+                  >
+                    <Image
+                      src="/assets/images/x-icon.svg"
+                      width="12"
+                      height="12"
+                    ></Image>{" "}
+                  </button>
+                </div>
               </div>
+              {/* <p>--------------------------------------------------------</p> */}
+            </section>
 
-           </div>
+            <section className="  flex flex-col items-start gap-1 ">
+              {/* this is sub header  */}
+              <div className="  w-full flex flex-row items-start gap-2">
+                <div className="">
+                  <button
+                    onClick={() => {
+                      setShowPermissionModal(true);
+                    }}
+                    className=" px-[12px] py-[7px] not-italic font-semibold text-sm text-gray-700 leading-5"
+                  >
+                    Permissions
+                  </button>
+                </div>
+                <div className="">
+                  <Link href="/Adminstratio">
+                    <button className=" px-[12px] py-[7px] not-italic font-semibold text-sm text-gray-500 leading-5">
+                      Users
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </section>
+
+            <section className="w-full  ">
+              {/* this is table container */}
+              <div className=" w-full table">
+                <table className="w-full">
+                  <thead className="w-full bg-[#F9FAFB] ">
+                    <tr className=" border_Bottom ">
+                      <th
+                        scope="col"
+                        className={`px-6 py-[12px] flex flex-row item-start  w-[60%] `}
+                      >  
+                            <p className=" not-italic font-medium text-xs leading-[18px] text-gray-600 ">
+                              Feature
+                            </p>
+                        
+                      </th>
+
+                      <th scope="col" className={`  w-[10%] px-6 py-[12px]`}>
+                        <p className="  not-italic font-medium text-xs leading-[18px] text-gray-600 ">
+                        Read
+                        </p>
+                      </th>
+                      <th scope="col" className={` box-border  w-[10%] px-6 py-[12px] `}>
+                        <p className=" not-italic font-medium text-xs leading-[18px] text-gray-600 ">
+                        Write
+                        </p>
+                      </th>
+
+                      <th scope="col" className={` box-border  w-[10%] px-6 py-[12px] `}>
+                        <p className=" not-italic font-medium text-xs leading-[18px] text-gray-600 ">
+                        Create
+                        </p>
+                      </th>
+                      <th scope="col" className={` box-border  w-[10%] px-6 py-[12px] `}>
+                        <p className=" not-italic font-medium text-xs leading-[18px] text-gray-600 ">
+                        Delete
+                        </p>
+                      </th>
+                    </tr>
+                  </thead>
+                   <tbody>
+                    <tr className="border_Bottom">
+                      <td
+                        className={`  px-6 py-6 w-[60%]   `}
+                      
+                      >
+                        <p className=" not-italic font-medium text-sm text-gray-900">
+                        User Administration
+
+                        </p>
+                     
+                      </td>
+
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                     
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                      <td
+                        className={`  px-6 py-[12px] w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>         
+                    </tr>
+                    <tr className="border_Bottom">
+                      <td
+                        className={`  px-6 py-6 w-[60%]   `}
+                      
+                      >
+                        <p className=" not-italic font-medium text-sm text-gray-900">
+                        User Administration
+
+                        </p>
+                     
+                      </td>
+
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                     
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                      <td
+                        className={`  px-6 py-[12px] w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>         
+                    </tr>
+                    <tr className="border_Bottom">
+                      <td
+                        className={`  px-6 py-6 w-[60%]   `}
+                      
+                      >
+                        <p className=" not-italic font-medium text-sm text-gray-900">
+                        Ticketing 
+
+                        </p>
+                     
+                      </td>
+
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                     
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none "
+                      ></input>
+                     
+                      </div>
+                      </td>
+                      <td
+                        className={`  px-6 py-[12px] w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>         
+                    </tr>
+
+                    <tr className="border_Bottom">
+                      <td
+                        className={`  px-6 py-6 w-[60%]   `}
+                      
+                      >
+                        <p className=" not-italic font-medium text-sm text-gray-900">
+                        NOC Dashboard
+
+                        </p>
+                     
+                      </td>
+
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                     
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                      <td
+                        className={`  px-6 py-[12px] w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>         
+                    </tr>
+
+                    <tr className="">
+                      <td
+                        className={`  px-6 py-6 w-[60%]   `}
+                      
+                      >
+                        <p className=" not-italic font-medium text-sm text-gray-900">
+                        SOC Dashboard
+
+                        </p>
+                     
+                      </td>
+
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                     
+                      <td
+                        className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>
+                      <td
+                        className={`  px-6 py-[12px] w-[10%]  not-italic font-medium text-sm text-gray-900 `}
+                      >
+                      <div className="  flex flex-row justify-center ">
+                      <button className="">
+                      <input
+                        type="checkbox"
+                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                      ></input>
+                      </button>
+                      </div>
+                      </td>         
+                    </tr>
+                  </tbody> 
+                </table>
+              </div>
+              <div className="py-8 flex flex-col gap-7 ">
+                {/* this is footer  */}
+                <div className="border_Bottom"></div>
+                <div className="px-6 flex flex-row gap-3 justify-start ">
+                  <div className=" w-full  ">
+                    <button className="btn2 w-full flex flex-row justify-center py-2 not-italic font-semibold text-base text-gray-700">
+                      Cancel
+                    </button>
+                  </div>
+                  <div className=" w-full">
+                    <button className="btn2 w-full flex flex-row justify-center py-2 bg-[#7F56D9] not-italic font-semibold text-base text-[#FFFFFF]">
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
-
-          </div>
-        </section>
-
-        </section>
-      
+        </PermissionModal>
+      </section>
     </Layout>
   );
 }

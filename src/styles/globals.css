@@ -115,3 +115,10 @@ border-radius: 10px;
             border-radius: 8px;
         
         }
+        .custom_border {
+            background: #F9F5FF;
+/* Primary/600 */
+
+border: 1px solid #7F56D9;
+border-radius: 4px;
+          }
