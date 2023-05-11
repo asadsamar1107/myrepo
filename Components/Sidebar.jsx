@@ -11,7 +11,7 @@ export default function Sidebar() {
           <div className="flex flex-col mt-8 gap-6 ">
             <div className="w-full pl-6">
               {/* Header  */}
-              <div className="flex flex-row gap-2  ">
+              <div className="  flex flex-row gap-2  ">
                 <div className=" ">
                   {/* logo-Image  */}
                   <Image

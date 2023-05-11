@@ -28,7 +28,7 @@ export default function Adminstration() {
       <section className="flex flex-col items-start pt-8 gap-3">
         <section className={`px-8`}>
           <div className={` w-[100%]`}>
-            <h2 className="text-3xl text-gray-900 font-semibold leading-9 not-italic">
+            <h2 className="  text-3xl text-gray-900 font-semibold leading-9 not-italic">
               Adminstration
             </h2>
             <p className="text-base text-gray-600 font-normal leading-6 not-italic">
@@ -399,7 +399,9 @@ export default function Adminstration() {
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row  w-[15%] py-6 `}
                     >
-                      <Image
+                    
+                      <div  className={`${AdminStyle.activeBadge}`}>
+                           <Image
                         src="./assets/images/success-dot.svg"
                         alt="My Image"
                         width={6}
@@ -407,10 +409,12 @@ export default function Adminstration() {
                       />
 
                       <p
-                        className={`${AdminStyle.activeBadge} not-italic font-medium text-xs text-[#027A48]`}
+                        className={` not-italic font-medium text-xs text-[#027A48]`}
                       >
                         Active
                       </p>
+
+                      </div>
                     </td>
 
                     <td
@@ -478,7 +482,7 @@ export default function Adminstration() {
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row  w-[15%] py-6 `}
                     >
-                      <Image
+                      {/* <Image
                         src="./assets/images/offline-dot.svg"
                         alt="My Image"
                         width={6}
@@ -489,7 +493,22 @@ export default function Adminstration() {
                         className={`${AdminStyle.offlineBadge} not-italic font-medium text-xs text-[#344054]`}
                       >
                         Offline
-                      </p>
+                      </p> */}
+                      <div className={`${AdminStyle.offlineBadge}`}>
+                      <Image
+                        src="./assets/images/offline-dot.svg"
+                        alt="My Image"
+                        width={6}
+                        height={6}
+                      />
+
+                      <p
+                        className={` not-italic font-medium text-xs text-[#344054]`}
+                      >
+                        Offline
+                      </p> 
+
+                      </div>
                     </td>
 
                     <td
@@ -557,7 +576,8 @@ export default function Adminstration() {
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row  w-[15%] py-6 `}
                     >
-                      <Image
+                      <div  className={`${AdminStyle.activeBadge}`}>
+                           <Image
                         src="./assets/images/success-dot.svg"
                         alt="My Image"
                         width={6}
@@ -565,10 +585,12 @@ export default function Adminstration() {
                       />
 
                       <p
-                        className={`${AdminStyle.activeBadge} not-italic font-medium text-xs text-[#027A48]`}
+                        className={` not-italic font-medium text-xs text-[#027A48]`}
                       >
                         Active
                       </p>
+
+                      </div>
                     </td>
 
                     <td
@@ -642,6 +664,7 @@ export default function Adminstration() {
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row  w-[15%] py-6 `}
                     >
+                      <div className={`${AdminStyle.offlineBadge}`}>
                       <Image
                         src="./assets/images/offline-dot.svg"
                         alt="My Image"
@@ -650,10 +673,12 @@ export default function Adminstration() {
                       />
 
                       <p
-                        className={`${AdminStyle.offlineBadge} not-italic font-medium text-xs text-[#344054]`}
+                        className={` not-italic font-medium text-xs text-[#344054]`}
                       >
                         Offline
-                      </p>
+                      </p> 
+
+                      </div>
                     </td>
 
                     <td
@@ -721,7 +746,8 @@ export default function Adminstration() {
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row  w-[15%] py-6 `}
                     >
-                      <Image
+                       <div  className={`${AdminStyle.activeBadge}`}>
+                           <Image
                         src="./assets/images/success-dot.svg"
                         alt="My Image"
                         width={6}
@@ -729,10 +755,12 @@ export default function Adminstration() {
                       />
 
                       <p
-                        className={`${AdminStyle.activeBadge} not-italic font-medium text-xs text-[#027A48]`}
+                        className={` not-italic font-medium text-xs text-[#027A48]`}
                       >
                         Active
                       </p>
+
+                      </div>
                     </td>
 
                     <td
@@ -805,7 +833,8 @@ export default function Adminstration() {
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row  w-[15%] py-6 `}
                     >
-                      <Image
+                        <div  className={`${AdminStyle.activeBadge}`}>
+                           <Image
                         src="./assets/images/success-dot.svg"
                         alt="My Image"
                         width={6}
@@ -813,10 +842,12 @@ export default function Adminstration() {
                       />
 
                       <p
-                        className={`${AdminStyle.activeBadge} not-italic font-medium text-xs text-[#027A48]`}
+                        className={` not-italic font-medium text-xs text-[#027A48]`}
                       >
                         Active
                       </p>
+
+                      </div>
                     </td>
 
                     <td
