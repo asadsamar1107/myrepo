@@ -132,12 +132,45 @@ border: 1px solid #EAECF0;
 box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06);
 border-radius: 12px;
           }
-          .calendarElement {
+          .calendar-Element {
             position: absolute;
             left: 87%;
             transform: translateX(-50%);
             /* top: 160px; */
             border: 1px solid #ccc;
             z-index: 999; 
+            
           }
         
+          .blog-subscribe{
+            box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: column;
+/* justify-content: space-between; */
+align-items: flex-start;
+padding: 32px 32px 40px;
+gap: 82px;
+
+/* width: 624px; */
+/* height: 468px; */
+
+/* Gray/50 */
+
+background: #F9FAFB;
+/* Primary/700 */
+
+border-top: 4px solid #6941C6;
+border-radius: 0px 0px 16px 16px;
+          }
+          .t{
+            width: 46px;
+height: 46px;
+
+/* Primary/100 */
+
+background: #F4EBFF;
+border-radius: 28px;
+          }

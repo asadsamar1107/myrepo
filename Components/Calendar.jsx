@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { DateRange } from 'react-date-range'
-
 import format from 'date-fns/format'
 import { addDays } from 'date-fns'
 
@@ -13,9 +12,13 @@ const DateRangeComp = () => {
   const [range, setRange] = useState([
     {
       startDate: new Date(),
-      endDate: addDays(new Date(), 0),
-      key: 'selection'
+      endDate: addDays(new Date(), -2),
+      key: 'selection',
+      color:"#9E77ED",
+      
+      // rangeColors:['red','green']
     }
+    
   ])
 
   // get the target element to toggle 
@@ -43,7 +46,9 @@ const DateRangeComp = () => {
       setOpen(false)
     }
   }
-  console.log(range)
+//  const startDatee= range[0]
+//  console.log(startDatee.startDate)
+ console.log(new Date())
 
   return (
 
@@ -55,7 +60,10 @@ const DateRangeComp = () => {
             ranges={range}
             months={1}
             direction="horizontal"
-            className="calendarElement top-[24.9%] "
+            className="calendar-Element top-[24.9%] "
+            maxDate={new Date()}
+            
+         
           />
     
 

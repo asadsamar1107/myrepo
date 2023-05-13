@@ -4,36 +4,27 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { Adminstration } from "@/pages/Adminstration";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import * as Yup from "yup"
-const FormSchema=Yup.object().shape({
-    email: Yup.string()
+import * as Yup from "yup";
+const FormSchema = Yup.object().shape({
+  email: Yup.string()
     .required("This field is required")
     .email("Please enter a valid email"),
 
-    password: Yup.string()
-    .required("This field is required")
-    // .password("password must be atleast 8 characters"),
-   
-})
-
-
+  password: Yup.string().required("This field is required"),
+  // .password("password must be atleast 8 characters"),
+});
 
 export default function Login() {
-  const router=useRouter();
-  const handleSubmit=(values)=>
-    {
-       
-       if(values.email=="tachyon@123" && values.password=="1234")
-       {
-        router.push("/Adminstration");
-       }
-       else{
-        alert("email or password may be incorrect!")
-       }
-      console.log(values.email)
-      console.log(values.password)
-        
+  const router = useRouter();
+  const handleSubmit = (values) => {
+    if (values.email == "tachyon@123" && values.password == "1234") {
+      router.push("/Adminstration");
+    } else {
+      alert("email or password may be incorrect!");
     }
+    console.log(values.email);
+    console.log(values.password);
+  };
 
   return (
     <div
@@ -79,76 +70,69 @@ export default function Login() {
             <div className={`${LoginStyle}`}>
               {/* Form Container  */}
               <Formik
-                    initialValues={{
-                     
-                      email: "",
-                      password:""
-                      
-                    }}
-                    validationSchema={FormSchema}
-                    onSubmit={handleSubmit}
-                  >
-                    {({ values, setFieldValue }) => (
-                    
-                       <Form className="w-full flex flex-col gap-4">
-                        <div className="flex flex-col gap-[6px] w-full">
-                          <div className={LoginStyle}>
-                          <label
-                            className="text-sm font-medium text-gray-700"
-                            htmlFor="name"
-                          >
-                            Email*
-                          </label>
-                          </div>
-                          <div className={LoginStyle}>
-                          <Field
-                            className={`${LoginStyle.input_conatiner} w-full placeholder:font-normal text-base text-gray-500`}
-                            name="email"
-                            id="email"
-                            placeholder="Enter your email"
-                          />
-                          </div>
-                          <div className="text-red-500 text-xs ">
-                            <ErrorMessage name="email" />
-                          </div>
-                        </div>
+                initialValues={{
+                  email: "",
+                  password: "",
+                }}
+                validationSchema={FormSchema}
+                onSubmit={handleSubmit}
+              >
+                {({ values, setFieldValue }) => (
+                  <Form className="w-full flex flex-col gap-4">
+                    <div className="flex flex-col gap-[6px] w-full">
+                      <div className={LoginStyle}>
+                        <label
+                          className="text-sm font-medium text-gray-700"
+                          htmlFor="name"
+                        >
+                          Email*
+                        </label>
+                      </div>
+                      <div className={LoginStyle}>
+                        <Field
+                          className={`${LoginStyle.input_conatiner} w-full placeholder:font-normal text-base text-gray-500`}
+                          name="email"
+                          id="email"
+                          placeholder="Enter your email"
+                        />
+                      </div>
+                      <div className="text-red-500 text-xs ">
+                        <ErrorMessage name="email" />
+                      </div>
+                    </div>
 
-                        <div className="flex flex-col gap-[6px] w-full">
-                          <div className={LoginStyle}>
-                          <label
-                            className="text-sm font-medium text-gray-700 mb-2"
-                            htmlFor="password"
-                          >
-                            Password*
-                          </label>
-                          </div>
-                          <div className={LoginStyle}>
-                          <Field
-                            type="password"
-                            className={`${LoginStyle.input_conatiner} w-full placeholder:font-normal text-base text-gray-500`}
-                            name="password"
-                            id="password"
-                            placeholder="Enter Password"
-                          />
-                          </div>
-                          <div className="text-red-500 text-xs ">
-                            <ErrorMessage name="password" />
-                          </div>
-                        </div>
-                        
+                    <div className="flex flex-col gap-[6px] w-full">
+                      <div className={LoginStyle}>
+                        <label
+                          className="text-sm font-medium text-gray-700 mb-2"
+                          htmlFor="password"
+                        >
+                          Password*
+                        </label>
+                      </div>
+                      <div className={LoginStyle}>
+                        <Field
+                          type="password"
+                          className={`${LoginStyle.input_conatiner} w-full placeholder:font-normal text-base text-gray-500`}
+                          name="password"
+                          id="password"
+                          placeholder="Enter Password"
+                        />
+                      </div>
+                      <div className="text-red-500 text-xs ">
+                        <ErrorMessage name="password" />
+                      </div>
+                    </div>
 
-
-                        
-                        <div className={`${LoginStyle.btn}`}>
-                    <input type="submit"  className="not-italic font-semibold text-base text-[#FFFFFF] cursor-pointer"
-                     
-                   />
-                 
-                        </div>
-                      </Form>
-                    
-                    )}
-                  </Formik>
+                    <div className={`${LoginStyle.btn}`}>
+                      <input
+                        type="submit"
+                        className="not-italic font-semibold text-base text-[#FFFFFF] cursor-pointer"
+                      />
+                    </div>
+                  </Form>
+                )}
+              </Formik>
             </div>
           </div>
         </section>

@@ -160,146 +160,174 @@ export default function Adminstration() {
                   </button>
 
                   <Modal show={showModal} onClose={() => setShowModal(false)}>
-        <div className=" w-full">
-          <div className="">
-            <div className="">
-              <section
-                className={`${AddUserStyle} flex flex-row px-4 py-5  gap-3 w-full`}
-              >
-                {/* Nav Section  */}
-                <button className={`${AddUserStyle.btn}  px-[12px] py-1  `}>
-                  {/* <img src={addUserIcon} alt=""></img> */}
-                  <Image
-                    src="./assets/images/Add-user-icon.svg"
-                    alt="My Image"
-                    width={20}
-                    height={18}
-                  />
-                </button>
-                <div className={`${AddUserStyle} flex flex-col  w-full `}>
-                  <div className={`${AddUserStyle} flex flex-row justify-between`}>
-                    <p className="not-italic font-semibold text-gray-900 text-lg">
-                      Add User
-                    </p>
+                    <div className=" w-full">
+                      <div className="">
+                        <div className="">
+                          <section
+                            className={`${AddUserStyle} flex flex-row px-4 py-5  gap-3 w-full`}
+                          >
+                            {/* Nav Section  */}
+                            <button
+                              className={`${AddUserStyle.btn}  px-[12px] py-1  `}
+                            >
+                              {/* <img src={addUserIcon} alt=""></img> */}
+                              <Image
+                                src="./assets/images/Add-user-icon.svg"
+                                alt="My Image"
+                                width={20}
+                                height={18}
+                              />
+                            </button>
+                            <div
+                              className={`${AddUserStyle} flex flex-col  w-full `}
+                            >
+                              <div
+                                className={`${AddUserStyle} flex flex-row justify-between`}
+                              >
+                                <p className="not-italic font-semibold text-gray-900 text-lg">
+                                  Add User
+                                </p>
 
-                    <button onClick={()=>{setShowModal(false)}}><Image src="/assets/images/x-icon.svg" width="12" height="12"></Image> </button>
-                  </div>
-                  <div>
-                  <p className="not-italic font-normal text-sm text-gray-600">
-                    Add a new user to your organization
-                  </p>
-                  </div>
-                </div>
-              </section>
+                                <button
+                                  onClick={() => {
+                                    setShowModal(false);
+                                  }}
+                                >
+                                  <Image
+                                    src="/assets/images/x-icon.svg"
+                                    width="12"
+                                    height="12"
+                                  ></Image>{" "}
+                                </button>
+                              </div>
+                              <div>
+                                <p className="not-italic font-normal text-sm text-gray-600">
+                                  Add a new user to your organization
+                                </p>
+                              </div>
+                            </div>
+                          </section>
 
-              <section
-                className={`${AddUserStyle.bdrBtm} w-full px-5 py-5 bdr-btm `}
-              >
-                {/* form container  */}
-                <form onSubmit={handleFormSubmit} className="w-full  ">
-                  <div className="flex flex-col mb-3 ">
-                    <label
-                      className="text-sm font-medium text-gray-700 pb-[6px]"
-                      htmlFor="username"
-                    >
-                      First Name*
-                    </label>
-                    <input
-                      className={AddUserStyle.input_conatiner}
-                      name="firstName"
-                      type="text"
-                      value={firstName}
-                      onChange={(e)=>{setFirstName(e.target.value)}}
-                      required
-                    />
-                  </div>
+                          <section
+                            className={`${AddUserStyle.bdrBtm} w-full px-5 py-5 bdr-btm `}
+                          >
+                            {/* form container  */}
+                            <form
+                              onSubmit={handleFormSubmit}
+                              className="w-full  "
+                            >
+                              <div className="flex flex-col mb-3 ">
+                                <label
+                                  className="text-sm font-medium text-gray-700 pb-[6px]"
+                                  htmlFor="username"
+                                >
+                                  First Name*
+                                </label>
+                                <input
+                                  className={AddUserStyle.input_conatiner}
+                                  name="firstName"
+                                  type="text"
+                                  value={firstName}
+                                  onChange={(e) => {
+                                    setFirstName(e.target.value);
+                                  }}
+                                  required
+                                />
+                              </div>
 
-                  <div className="flex flex-col mb-3 ">
-                    <label
-                      className="text-sm font-medium text-gray-700 pb-[6px]"
-                      
-                    >
-                      Last Name*
-                    </label>
-                    <input
-                      className={AddUserStyle.input_conatiner}
-                      name="lastName"
-                      type="text"
-                      value={lastName}
-                      onChange={(e)=>setLastName(e.target.value)}
-                      required
-                    />
-                  </div>
+                              <div className="flex flex-col mb-3 ">
+                                <label className="text-sm font-medium text-gray-700 pb-[6px]">
+                                  Last Name*
+                                </label>
+                                <input
+                                  className={AddUserStyle.input_conatiner}
+                                  name="lastName"
+                                  type="text"
+                                  value={lastName}
+                                  onChange={(e) => setLastName(e.target.value)}
+                                  required
+                                />
+                              </div>
 
-                  <div className="flex flex-col mb-3 ">
-                    <label
-                      className="text-sm font-medium text-gray-700 pb-[6px]"
-                      htmlFor="username"
-                    >
-                      Email Address*
-                    </label>
-                    <input
-                      className={AddUserStyle.input_conatiner}
-                      name="email"
-                      type="email"
-                      value={email}
-                      onChange={(e)=>
-                      {
-                        setEmail(e.target.value)
-                      }}
-                      required
-                    />
-                  </div>
-                  <div className="flex flex-col mb-3 ">
-                    <label
-                      className="text-sm font-medium text-gray-700 pb-[6px]"
-                      htmlFor="username"
-                      
-                    >
-                      Role
-                    </label>
-                    {/* <input
+                              <div className="flex flex-col mb-3 ">
+                                <label
+                                  className="text-sm font-medium text-gray-700 pb-[6px]"
+                                  htmlFor="username"
+                                >
+                                  Email Address*
+                                </label>
+                                <input
+                                  className={AddUserStyle.input_conatiner}
+                                  name="email"
+                                  type="email"
+                                  value={email}
+                                  onChange={(e) => {
+                                    setEmail(e.target.value);
+                                  }}
+                                  required
+                                />
+                              </div>
+                              <div className="flex flex-col mb-3 ">
+                                <label
+                                  className="text-sm font-medium text-gray-700 pb-[6px]"
+                                  htmlFor="username"
+                                >
+                                  Role
+                                </label>
+                                {/* <input
                  className="input-conatiner"
                  id="username"
                  type="se"
                /> */}
-                    <select value={selectValue} onChange={(e)=>{setSelectValue(e.target.value)}} className={AddUserStyle.input_conatiner}>
-                      <option value="Administrator"  className="not-italic font-normal text-base text-black">
-                        Administrator
-                      </option>
-                      <option value="User" className="not-italic font-normal text-base text-black">
-                        User
-                      </option>
-                      
-
-                      
-                    </select>
-                  </div>
-                </form>
-              </section>
-              <section className="w-full px-5 py-5 ">
-                <div className=" flex flex-row gap-3">
-                  <div className="">
-                    <button onClick={()=>{setShowModal(false)}}
-                      className={`${AddUserStyle.add_user2} add-user2 text px-10 py-1.5 bg-[#FFFFFF]font-semibold not-italic text-base text-gray-700`}
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                  <div className="">
-                    <button onClick={handleFormSubmit}
-                      className={`${AddUserStyle.add_user2} add-user2 text px-10 py-1.5 bg-[#7F56D9] font-semibold not-italic text-base text-[#FFFFFF]`}
-                    >
-                      Add User
-                    </button>
-                  </div>
-                </div>
-              </section>
-            </div>
-          </div>
-        </div>
-      </Modal>
-
+                                <select
+                                  value={selectValue}
+                                  onChange={(e) => {
+                                    setSelectValue(e.target.value);
+                                  }}
+                                  className={AddUserStyle.input_conatiner}
+                                >
+                                  <option
+                                    value="Administrator"
+                                    className="not-italic font-normal text-base text-black"
+                                  >
+                                    Administrator
+                                  </option>
+                                  <option
+                                    value="User"
+                                    className="not-italic font-normal text-base text-black"
+                                  >
+                                    User
+                                  </option>
+                                </select>
+                              </div>
+                            </form>
+                          </section>
+                          <section className="w-full px-5 py-5 ">
+                            <div className=" flex flex-row gap-3">
+                              <div className="">
+                                <button
+                                  onClick={() => {
+                                    setShowModal(false);
+                                  }}
+                                  className={`${AddUserStyle.add_user2} add-user2 text px-10 py-1.5 bg-[#FFFFFF]font-semibold not-italic text-base text-gray-700`}
+                                >
+                                  Cancel
+                                </button>
+                              </div>
+                              <div className="">
+                                <button
+                                  onClick={handleFormSubmit}
+                                  className={`${AddUserStyle.add_user2} add-user2 text px-10 py-1.5 bg-[#7F56D9] font-semibold not-italic text-base text-[#FFFFFF]`}
+                                >
+                                  Add User
+                                </button>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </Modal>
                 </div>
               </div>
             </div>
@@ -399,21 +427,19 @@ export default function Adminstration() {
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row  w-[15%] py-6 `}
                     >
-                    
-                      <div  className={`${AdminStyle.activeBadge}`}>
-                           <Image
-                        src="./assets/images/success-dot.svg"
-                        alt="My Image"
-                        width={6}
-                        height={6}
-                      />
+                      <div className={`${AdminStyle.activeBadge}`}>
+                        <Image
+                          src="./assets/images/success-dot.svg"
+                          alt="My Image"
+                          width={6}
+                          height={6}
+                        />
 
-                      <p
-                        className={` not-italic font-medium text-xs text-[#027A48]`}
-                      >
-                        Active
-                      </p>
-
+                        <p
+                          className={` not-italic font-medium text-xs text-[#027A48]`}
+                        >
+                          Active
+                        </p>
                       </div>
                     </td>
 
@@ -495,19 +521,18 @@ export default function Adminstration() {
                         Offline
                       </p> */}
                       <div className={`${AdminStyle.offlineBadge}`}>
-                      <Image
-                        src="./assets/images/offline-dot.svg"
-                        alt="My Image"
-                        width={6}
-                        height={6}
-                      />
+                        <Image
+                          src="./assets/images/offline-dot.svg"
+                          alt="My Image"
+                          width={6}
+                          height={6}
+                        />
 
-                      <p
-                        className={` not-italic font-medium text-xs text-[#344054]`}
-                      >
-                        Offline
-                      </p> 
-
+                        <p
+                          className={` not-italic font-medium text-xs text-[#344054]`}
+                        >
+                          Offline
+                        </p>
                       </div>
                     </td>
 
@@ -576,20 +601,19 @@ export default function Adminstration() {
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row  w-[15%] py-6 `}
                     >
-                      <div  className={`${AdminStyle.activeBadge}`}>
-                           <Image
-                        src="./assets/images/success-dot.svg"
-                        alt="My Image"
-                        width={6}
-                        height={6}
-                      />
+                      <div className={`${AdminStyle.activeBadge}`}>
+                        <Image
+                          src="./assets/images/success-dot.svg"
+                          alt="My Image"
+                          width={6}
+                          height={6}
+                        />
 
-                      <p
-                        className={` not-italic font-medium text-xs text-[#027A48]`}
-                      >
-                        Active
-                      </p>
-
+                        <p
+                          className={` not-italic font-medium text-xs text-[#027A48]`}
+                        >
+                          Active
+                        </p>
                       </div>
                     </td>
 
@@ -665,19 +689,18 @@ export default function Adminstration() {
                       className={`${AdminStyle} pl-6 flex flex-row  w-[15%] py-6 `}
                     >
                       <div className={`${AdminStyle.offlineBadge}`}>
-                      <Image
-                        src="./assets/images/offline-dot.svg"
-                        alt="My Image"
-                        width={6}
-                        height={6}
-                      />
+                        <Image
+                          src="./assets/images/offline-dot.svg"
+                          alt="My Image"
+                          width={6}
+                          height={6}
+                        />
 
-                      <p
-                        className={` not-italic font-medium text-xs text-[#344054]`}
-                      >
-                        Offline
-                      </p> 
-
+                        <p
+                          className={` not-italic font-medium text-xs text-[#344054]`}
+                        >
+                          Offline
+                        </p>
                       </div>
                     </td>
 
@@ -746,20 +769,19 @@ export default function Adminstration() {
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row  w-[15%] py-6 `}
                     >
-                       <div  className={`${AdminStyle.activeBadge}`}>
-                           <Image
-                        src="./assets/images/success-dot.svg"
-                        alt="My Image"
-                        width={6}
-                        height={6}
-                      />
+                      <div className={`${AdminStyle.activeBadge}`}>
+                        <Image
+                          src="./assets/images/success-dot.svg"
+                          alt="My Image"
+                          width={6}
+                          height={6}
+                        />
 
-                      <p
-                        className={` not-italic font-medium text-xs text-[#027A48]`}
-                      >
-                        Active
-                      </p>
-
+                        <p
+                          className={` not-italic font-medium text-xs text-[#027A48]`}
+                        >
+                          Active
+                        </p>
                       </div>
                     </td>
 
@@ -833,20 +855,19 @@ export default function Adminstration() {
                     <td
                       className={`${AdminStyle} pl-6 flex flex-row  w-[15%] py-6 `}
                     >
-                        <div  className={`${AdminStyle.activeBadge}`}>
-                           <Image
-                        src="./assets/images/success-dot.svg"
-                        alt="My Image"
-                        width={6}
-                        height={6}
-                      />
+                      <div className={`${AdminStyle.activeBadge}`}>
+                        <Image
+                          src="./assets/images/success-dot.svg"
+                          alt="My Image"
+                          width={6}
+                          height={6}
+                        />
 
-                      <p
-                        className={` not-italic font-medium text-xs text-[#027A48]`}
-                      >
-                        Active
-                      </p>
-
+                        <p
+                          className={` not-italic font-medium text-xs text-[#027A48]`}
+                        >
+                          Active
+                        </p>
                       </div>
                     </td>
 
@@ -959,7 +980,9 @@ export default function Adminstration() {
           onClose={() => setShowPermissionModal(false)}
         >
           <div className=" w-full flex flex-col gap-4 px-5 pt-2 ">
-            <section className={`border_Bottom  flex flex-row px-4 py-5  gap-3 w-full`}>
+            <section
+              className={`border_Bottom  flex flex-row px-4 py-5  gap-3 w-full`}
+            >
               {/* Nav Section  */}
 
               <div className={` flex flex-col  w-full `}>
@@ -1016,350 +1039,331 @@ export default function Adminstration() {
                       <th
                         scope="col"
                         className={`px-6 py-[12px] flex flex-row item-start  w-[60%] `}
-                      >  
-                            <p className=" not-italic font-medium text-xs leading-[18px] text-gray-600 ">
-                              Feature
-                            </p>
-                        
+                      >
+                        <p className=" not-italic font-medium text-xs leading-[18px] text-gray-600 ">
+                          Feature
+                        </p>
                       </th>
 
                       <th scope="col" className={`  w-[10%] px-6 py-[12px]`}>
                         <p className="  not-italic font-medium text-xs leading-[18px] text-gray-600 ">
-                        Read
+                          Read
                         </p>
                       </th>
-                      <th scope="col" className={` box-border  w-[10%] px-6 py-[12px] `}>
+                      <th
+                        scope="col"
+                        className={` box-border  w-[10%] px-6 py-[12px] `}
+                      >
                         <p className=" not-italic font-medium text-xs leading-[18px] text-gray-600 ">
-                        Write
+                          Write
                         </p>
                       </th>
 
-                      <th scope="col" className={` box-border  w-[10%] px-6 py-[12px] `}>
+                      <th
+                        scope="col"
+                        className={` box-border  w-[10%] px-6 py-[12px] `}
+                      >
                         <p className=" not-italic font-medium text-xs leading-[18px] text-gray-600 ">
-                        Create
+                          Create
                         </p>
                       </th>
-                      <th scope="col" className={` box-border  w-[10%] px-6 py-[12px] `}>
+                      <th
+                        scope="col"
+                        className={` box-border  w-[10%] px-6 py-[12px] `}
+                      >
                         <p className=" not-italic font-medium text-xs leading-[18px] text-gray-600 ">
-                        Delete
+                          Delete
                         </p>
                       </th>
                     </tr>
                   </thead>
-                   <tbody>
+                  <tbody>
                     <tr className="border_Bottom">
-                      <td
-                        className={`  px-6 py-6 w-[60%]   `}
-                      
-                      >
+                      <td className={`  px-6 py-6 w-[60%]   `}>
                         <p className=" not-italic font-medium text-sm text-gray-900">
-                        User Administration
-
+                          User Administration
                         </p>
-                     
                       </td>
 
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
-                     
+
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
                       <td
                         className={`  px-6 py-[12px] w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
-                      </td>         
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
+                      </td>
                     </tr>
                     <tr className="border_Bottom">
-                      <td
-                        className={`  px-6 py-6 w-[60%]   `}
-                      
-                      >
+                      <td className={`  px-6 py-6 w-[60%]   `}>
                         <p className=" not-italic font-medium text-sm text-gray-900">
-                        User Administration
-
+                          User Administration
                         </p>
-                     
                       </td>
 
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
-                     
+
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
                       <td
                         className={`  px-6 py-[12px] w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
-                      </td>         
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
+                      </td>
                     </tr>
                     <tr className="border_Bottom">
-                      <td
-                        className={`  px-6 py-6 w-[60%]   `}
-                      
-                      >
+                      <td className={`  px-6 py-6 w-[60%]   `}>
                         <p className=" not-italic font-medium text-sm text-gray-900">
-                        Ticketing 
-
+                          Ticketing
                         </p>
-                     
                       </td>
 
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
-                     
+
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none "
-                      ></input>
-                     
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <input
+                            type="checkbox"
+                            className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none "
+                          ></input>
+                        </div>
                       </td>
                       <td
                         className={`  px-6 py-[12px] w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
-                      </td>         
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
+                      </td>
                     </tr>
 
                     <tr className="border_Bottom">
-                      <td
-                        className={`  px-6 py-6 w-[60%]   `}
-                      
-                      >
+                      <td className={`  px-6 py-6 w-[60%]   `}>
                         <p className=" not-italic font-medium text-sm text-gray-900">
-                        NOC Dashboard
-
+                          NOC Dashboard
                         </p>
-                     
                       </td>
 
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
-                     
+
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
                       <td
                         className={`  px-6 py-[12px] w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
-                      </td>         
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
+                      </td>
                     </tr>
 
                     <tr className="">
-                      <td
-                        className={`  px-6 py-6 w-[60%]   `}
-                      
-                      >
+                      <td className={`  px-6 py-6 w-[60%]   `}>
                         <p className=" not-italic font-medium text-sm text-gray-900">
-                        SOC Dashboard
-
+                          SOC Dashboard
                         </p>
-                     
                       </td>
 
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
-                     
+
                       <td
                         className={`  px-6 py-6 w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
                       </td>
                       <td
                         className={`  px-6 py-[12px] w-[10%]  not-italic font-medium text-sm text-gray-900 `}
                       >
-                      <div className="  flex flex-row justify-center ">
-                      <button className="">
-                      <input
-                        type="checkbox"
-                        className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
-                      ></input>
-                      </button>
-                      </div>
-                      </td>         
+                        <div className="  flex flex-row justify-center ">
+                          <button className="">
+                            <input
+                              type="checkbox"
+                              className="w-[16px] h-[16px] mt-0.5 custom_border appearance-none"
+                            ></input>
+                          </button>
+                        </div>
+                      </td>
                     </tr>
-                  </tbody> 
+                  </tbody>
                 </table>
               </div>
               <div className="py-8 flex flex-col gap-7 ">
