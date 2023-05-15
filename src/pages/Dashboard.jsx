@@ -5,17 +5,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePickerModal from "../../Components/Calendar";
 // import Calendar from "../../Components/Calendar"
-import { Doughnut } from "react-chartjs-2";
+import { Doughnut} from "react-chartjs-2";
 import { Chart, Tooltip, Title, ArcElement, Legend } from "chart.js";
+import BarChart from '../../Components/BarChart'
 Chart.register(Tooltip, Title, ArcElement, Legend);
 
 export default function Dashboard() {
   const [openCalendar, setOpenCalendar] = useState(false);
-  // useEffect(() => {
-  //   fetch("https://jsonplaceholder.typicode.com/posts")
-  //     .then((res) => res.json())
-  //     .then((json) => console.log(json));
-  // });
+ 
   const Nocdata = {
     datasets: [
       {
@@ -237,7 +234,7 @@ export default function Dashboard() {
               ></Doughnut>
             </div>
 
-            <div className=" w-full flex flex-col gap-6  py-2">
+            <div className=" w-full flex flex-col gap-6  py-2 ">
               {/* this is for content */}
               <div className="flex flex-row justify-between ">
                 <div>
@@ -291,19 +288,22 @@ export default function Dashboard() {
                   <p className=" font-semibold text-base text-gray-900">Balance over time</p>
                 </div>
                 <div>
-                  <Image
-                    width="4"
-                    height="12"
-                    src="/assets/images/three-dot-icon.svg"
-                  />
+                <button>
+                    <Image
+                      width="4"
+                      height="12"
+                      src="/assets/images/three-dot-icon.svg"
+                    />
+                  </button>
                 </div>
               </div>
-              <div className="">
-                <Image
-                  width="600"
+              <div className="w-full h-full ">
+                {/* <Image
+                  width="650"
                   height="200"
                   src="/assets/images/Line and bar chart.svg"
-                />
+                /> */}
+                <BarChart/>
               </div>
             </div>
 
@@ -313,11 +313,13 @@ export default function Dashboard() {
                   <p className=" font-semibold text-base text-gray-900">Newsletter</p>
                 </div>
                 <div>
-                  <Image
-                    width="4"
-                    height="12"
-                    src="/assets/images/three-dot-icon.svg"
-                  />
+                <button>
+                    <Image
+                      width="4"
+                      height="12"
+                      src="/assets/images/three-dot-icon.svg"
+                    />
+                  </button>
                 </div>
               </div>
 
@@ -344,7 +346,7 @@ export default function Dashboard() {
                           id="email"
                           placeholder="Enter your email"
                         />
-                        <p className="text-gray-600 text-sm font-normal">Read about our privacy policy.</p>
+                        <p className="text-gray-600 text-sm font-normal">Read about our <a>privacy policy</a> .</p>
                    </div>
                    <div className="w-full flex flex-row justify-center AddUserBtn downloadBtn bg-[#7F56D9] py-2 text-[#FFFFFF] font-semibold text-base">
                     <button className=" ">Subscribe</button>
@@ -381,22 +383,69 @@ export default function Dashboard() {
                   <p className=" font-semibold text-base text-gray-900">Top Tickets</p>
                 </div>
                 <div>
-                  <Image
-                    width="4"
-                    height="12"
-                    src="/assets/images/three-dot-icon.svg"
-                  />
+                <button>
+                    <Image
+                      width="4"
+                      height="12"
+                      src="/assets/images/three-dot-icon.svg"
+                    />
+                  </button>
                 </div>
               </div>
-            <div>
+
+            <div className="w-full">
               {/* this is content-table */}
-              <table>
+              <table className="w-full ">
+                {/* <thead className="">
+                  <tr className="flex flex-row items-start justify-start">
+                    <th className=" w-[80%] gr text-start">bbbbbbbbbbbbbbbeb</th>
+                    <th className="gr w-[20%] text-end">Workkkkkk</th>
+
+                  </tr>
+                </thead> */}
+                <tbody className="w-full flex flex-col">
+                  <tr className="w-full flex flex-row border_Bottom">
+                  <td className=" w-[80%]  text-start py-6 not-italic font-medium text-sm text-gray-900 ">
+                Olivia Rhye
+                  </td>
+
+                    <td className=" w-[20%] text-end py-6 font-normal text-[#039855] text-sm">2 days</td>
+                    
+                  </tr>
+                  <tr className="w-full flex flex-row border_Bottom">
+                  <td className=" w-[80%]  text-start py-6 not-italic font-medium text-sm text-gray-900 ">
+                  Mastercard ending in 5678
+                  </td>
+
+                    <td className=" w-[20%] text-end py-6 font-normal text-[#039855] text-sm">2 days</td>
+                    
+                  </tr>
+                  <tr className="w-full flex flex-row border_Bottom">
+                  <td className=" w-[80%]  text-start py-6 not-italic font-medium text-sm text-gray-900 ">
+                  Stripe deposit
+                  </td>
+
+                    <td className=" w-[20%] text-end py-6 font-normal text-[#039855] text-sm">2 days</td>
+                    
+                  </tr>
+                  <tr className="w-full flex flex-row border_Bottom">
+                  <td className=" w-[80%]  text-start py-6 not-italic font-medium text-sm text-gray-900 ">
+                  Olivia Rhye
+                  </td>
+
+                    <td className=" w-[20%] text-end py-6 font-normal text-[#039855] text-sm">2 days</td>
+                    
+                  </tr>
+
                 
+                </tbody>
               </table>
             </div>
-            <div>
-              this is footer
+
+            <div className="flex flex-row justify-end items-end  w-full py-5">
+              <button className="font-medium text-sm text-[#039855] not-italic ">Show more</button>
             </div>
+           
             
           </div>
         </section>

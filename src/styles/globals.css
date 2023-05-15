@@ -174,3 +174,32 @@ height: 46px;
 background: #F4EBFF;
 border-radius: 28px;
           }
+
+        .login_btn{
+           
+                box-sizing: border-box;
+              
+                /* Auto layout */
+              
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 8px 12px;
+                /* gap: 8px; */
+              
+                /* width: 360px;
+              height: 44px; */
+              
+                /* Primary/600 */
+              
+                background: #7f56d9;
+                /* Primary/600 */
+              
+                border: 1px solid #7f56d9;
+                /* Shadow/xs */
+              
+                box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+                border-radius: 8px;
+              }
+        
