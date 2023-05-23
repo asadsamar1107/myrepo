@@ -38,9 +38,10 @@ display: flex;
 flex-direction: row;
 align-items: flex-start;
 padding: 0px;
+/* overflow: hidden; */
 
 /* width: 270px; */
-height: 848px;
+/* height: 848px; */
 
 /* Base/White */
 

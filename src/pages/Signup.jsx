@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import LoginStyle from "../styles/Login.module.css";
+import axios from 'axios'
 import * as Yup from "yup";
 const FormSchema = Yup.object().shape({
   email: Yup.string()
@@ -12,21 +13,29 @@ const FormSchema = Yup.object().shape({
   // .password("password must be atleast 8 characters"),
 });
 
+const SendData = async (values) => {
+
+  console.log(values)
+  
+  return await axios.post("http://localhost:4500/signupdata",values).then((response) => {
+    
+    // console.log(response)
+
+  }).catch(error => {
+    console.log(error)
+  })
+}
+
 export default function Signup() {
   const handleSubmit = (values) => {
-    //     if (values.email == "tachyon@123" && values.password == "1234") {
-    //       router.push("/Adminstration");
-    //     } else {
-    //       alert("email or password may be incorrect!");
-    //     }
-    //     console.log(values.email);
-    //     console.log(values.password);
-    //   };
+
+    SendData(values);
+    
   };
 
   return (
-    <div className="flex flex-row  w-full h-full items-center bg-[#FFFFFF] mb-[60px]  ">
-      <section className="w-[50%] h-full flex flex-col justify-between items-center gap-[60px]    ">
+    <div className="flex flex-row  w-full   bg-[#FFFFFF] mt-[3%]  h-screen ">
+      <section className="w-[50%] h-full flex flex-col  gap-[7%]   ">
         {/* Form Container  */}
         <section className={`w-full flex flex-row items-start p-8 `}>
           {/* Header section  */}
@@ -47,13 +56,13 @@ export default function Signup() {
           </div>
         </section>
 
-        <section className={` w-full flex flex-col items-cente px-[140px]   `}>
+        <section className={` w-full flex flex-col items-cente px-[140px]  `}>
           {/* Form section   */}
           <div className={` flex flex-col items-cente gap-8  `}>
             {/* Form div  */}
             <div className={` w-full `}>
               <h1 className="not-italic font-semibold text-3xl text-gray-900">
-                Login
+                Sign Up
               </h1>
             </div>
 
@@ -84,9 +93,9 @@ export default function Signup() {
                       <div className="">
                         <Field
                           className={`input_conatiner w-full placeholder:font-normal text-base text-gray-500`}
-                          name="full_Name"
-                          id="full_Name"
-                          placeholder="Enter your full Name"
+                          name="fullName"
+                          id="fullName"
+                          placeholder="Enter Name"
                         />
                       </div>
                       <div className="text-red-500 text-xs ">
@@ -108,7 +117,7 @@ export default function Signup() {
                           className={`input_conatiner w-full placeholder:font-normal text-base text-gray-500`}
                           name="email"
                           id="email"
-                          placeholder="Enter your email"
+                          placeholder="Enter Email"
                         />
                       </div>
                       <div className="text-red-500 text-xs ">
@@ -173,23 +182,24 @@ export default function Signup() {
                       </div>
                       <div className="">
                         <Field
-                          type="phone_number"
+                          type=""
                           className={`input_conatiner w-full placeholder:font-normal text-base text-gray-500`}
-                          name="phone_number"
-                          id="phone_number"
+                          name="phoneNumber"
+                          id="phoneNumber"
                           placeholder="Enter Phone Number"
                         />
                       </div>
                       <div className="text-red-500 text-xs ">
-                        <ErrorMessage name="phone_number" />
+                        <ErrorMessage name="phoneNumber" />
                       </div>
                     </div>
 
                     <div className="login_btn mt-6">
-                      <input
+                      {/* <input
                         type="submit"
                         className="not-italic font-semibold text-base text-[#FFFFFF] cursor-pointer"
-                      />
+                      /> */}
+                      <button type="submit" className="not-italic font-semibold text-base text-[#FFFFFF] cursor-pointer">Verify Account</button>
                     </div>
                   </Form>
                 )}
@@ -199,9 +209,9 @@ export default function Signup() {
         </section>
       </section>
 
-      <section className={`${LoginStyle} bg-gray-50   `}>
-        <div className={`${LoginStyle.bgimage} absolute top-0 w-[50%] h-full `}>
-          <div className={`${LoginStyle.attributionCard} top-[60%] w-full absolute`}>
+      <section className={`${LoginStyle} bg-gray-50 p-2  h-screen `}>
+        <div className={`${LoginStyle.bgimage}  absolute top-0 w-[50%] h-full`}>
+          <div className={`${LoginStyle.attributionCard} bottom-0 w-full absolute`}>
             <div>
               <p className="not-italic font-semibold text-xl text-[#FFFFFF]">
                 “Horizon has saved us thousands of hours of work. We’re able to

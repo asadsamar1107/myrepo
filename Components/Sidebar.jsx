@@ -4,8 +4,8 @@ import navlogo from "../public/assets/images/Content.svg";
 import Layout from "./Layout";
 export default function Sidebar() {
   return (
-    <div className={`${sidebarStyle.main} h-full`}>
-      <div className="flex flex-col justify-between items-start h-full ">
+    <div className={`${sidebarStyle.main} h-screen fixed top-0 left-0`}>
+      <div className="flex flex-col justify-between items-start h-screen ">
         <section className="  w-full ">
           {/* Navigation  */}
           <div className="flex flex-col mt-8 gap-6 ">

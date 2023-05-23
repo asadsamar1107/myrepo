@@ -17,7 +17,7 @@ const FormSchema = Yup.object().shape({
 export default function Login() {
   const router = useRouter();
   const handleSubmit = (values) => {
-    if (values.email == "tachyon@123" && values.password == "1234") {
+    if (values.email == "jeeshan@123" && values.password == "1234") {
       router.push("/Adminstration");
     } else {
       alert("email or password may be incorrect!");
@@ -28,17 +28,17 @@ export default function Login() {
 
   return (
     <div
-      className={` w-full flex flex-row items-center bg-[#FFFFFF] `}
+      className={` w-full flex flex-row  bg-[#FFFFFF] h-screen  `}
     >
-      <section
-        className="w-[50%] flex flex-col justify-between items-center gap-[60px]"
+      <main
+        className="flex flex-col gap-[13%] w-[50%] "
       >
         {/* Form container  */}
-        <section
-          className={`${LoginStyle} w-full flex flex-row items-start p-8`}
+        <header
+          className={`${LoginStyle} w-full flex flex-row items-start p-8  mt-[5%]`}
         >
           {/* Header section  */}
-          <div className={`${LoginStyle} flex flex-row items-center gap-2  `}>
+          <div className={`${LoginStyle} flex flex-row items-center gap-2 `}>
             <div className=" ">
               {/* logo-Image  */}
               <Image
@@ -53,21 +53,21 @@ export default function Login() {
               <p className="not-italic font-semibold text-[#000000]">Horizon</p>
             </div>
           </div>
-        </section>
+        </header>
 
         <section
-          className={`${LoginStyle} w-full flex flex-col items-cente px-[140px] `}
+          className={`${LoginStyle} w-full flex flex-col items-cente px-[140px]  h-screen  `}
         >
           {/* Form section   */}
           <div className={`${LoginStyle} flex flex-col items-cente gap-8 `}>
             {/* Form div  */}
-            <div className={`${LoginStyle} w-full`}>
+            <div className={`${LoginStyle} w-full  h-full`}>
               <h1 className="not-italic font-semibold text-3xl text-gray-900">
                 Login
               </h1>
             </div>
 
-            <div className={`${LoginStyle}`}>
+            <div className=" w-full h-full">
               {/* Form Container  */}
               <Formik
                 initialValues={{
@@ -78,9 +78,9 @@ export default function Login() {
                 onSubmit={handleSubmit}
               >
                 {({ values, setFieldValue }) => (
-                  <Form className="w-full flex flex-col gap-4">
-                    <div className="flex flex-col gap-[6px] w-full">
-                      <div className={LoginStyle}>
+                  <Form className="w-full flex flex-col gap-4 h-full">
+                    <div className="flex flex-col gap-[6px] w-full h-full">
+                      <div className="h-full">
                         <label
                           className="text-sm font-medium text-gray-700"
                           htmlFor="name"
@@ -90,7 +90,7 @@ export default function Login() {
                       </div>
                       <div className={LoginStyle}>
                         <Field
-                          className={`${LoginStyle.input_conatiner} w-full placeholder:font-normal text-base text-gray-500`}
+                          className={`${LoginStyle.input_conatiner} w-full h- placeholder:font-normal text-base text-gray-500`}
                           name="email"
                           id="email"
                           placeholder="Enter your email"
@@ -137,16 +137,17 @@ export default function Login() {
           </div>
         </section>
 
-        <section
-          className={`${LoginStyle} w-full flex flex-row justify-between p-8`}
+        <footer
+          className={`${LoginStyle} w-full flex flex-row justify-between p-8   mb-[5%]  `}
         >
           {/* Footer section  */}
-          <div>
-            <h1 className="not-italic font-normal text-sm text-gray-600">
+          <div className="flex flex-row items-center gap-[6px] h-full ">
+            {/* <h1 className="not-italic font-normal text-sm text-gray-600 h-full r">
               © Tachyon Security
-            </h1>
+            </h1> */}
+            <p className="not-italic font-normal text-sm text-gray-600">© Tachyon Security</p>
           </div>
-          <div className="flex flex-row items-center gap-[6px]">
+          <div className="flex flex-row items-center gap-[6px] h-full ">
             <div>
               <Image
                 src="./assets/images/email-Icon.svg"
@@ -160,12 +161,13 @@ export default function Login() {
               </h1>
             </div>
           </div>
-        </section>
-      </section>
+        </footer>
 
-      <section className={`${LoginStyle} bg-gray-50 p-2  `}>
+      </main>
+
+      <section className={`${LoginStyle} bg-gray-50 p-2  h-screen`}>
         <div className={`${LoginStyle.bgimage}  absolute top-0 w-[50%] h-full`}>
-          <div className={`${LoginStyle.attributionCard} top-[60%] w-full absolute`}>
+          <div className={`${LoginStyle.attributionCard} bottom-0 w-full absolute`}>
             <div>
               <p className="not-italic font-semibold text-xl text-[#FFFFFF]">
                 “Horizon has saved us thousands of hours of work. We’re able to

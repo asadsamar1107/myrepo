@@ -24,9 +24,9 @@ export default function Adminstration() {
   };
 
   return (
-    <Layout title="Admin">
-      <section className="flex flex-col items-start pt-8 gap-3">
-        <section className={`px-8`}>
+    <Layout title="Admin" className="">
+      <section className="flex flex-col items-start pt-8 gap-3  h-screen ">
+        <section className={`px-8  `}>
           <div className={` w-[100%]`}>
             <h2 className="  text-3xl text-gray-900 font-semibold leading-9 not-italic">
               Adminstration
@@ -96,7 +96,7 @@ export default function Adminstration() {
           </div>
         </section>
 
-        <section className={`${AdminStyle}  w-full px-[30px] py-6 `}>
+        <section className={`${AdminStyle}  w-full px-[30px] py-6  h-screen`}>
           <div
             className={`${AdminStyle.table1} flex flex-col items-start p-0 bg-[#FFFFFF] w-full  `}
           >
